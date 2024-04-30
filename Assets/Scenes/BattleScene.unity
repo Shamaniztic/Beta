@@ -1680,16 +1680,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5102f3f26b39518408f078fecb9d22d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyUnitPrefab: {fileID: 3844255949901942620}
-  playerUnitPrefabEntries:
-  - unitName: Solitude
-    prefab: {fileID: 4154463702668967871}
-  - unitName: Redline
-    prefab: {fileID: 7016239722227900360}
-  - unitName: Catalyst
-    prefab: {fileID: 1511051720676328745}
-  - unitName: Brujah
-    prefab: {fileID: 6571696211436417812}
+  canvasParent: {fileID: 319807949108254719}
+  playerHealthBar: {fileID: 479897865}
+  useDebug: 0
+  debugPlayerUnit: {fileID: 11400000, guid: a318406bf02b1de47b68567f2655a89c, type: 2}
+  debugEnemyUnit: {fileID: 11400000, guid: 1cd40ab3936cfaf40a234a3f6f318e7e, type: 2}
 --- !u!4 &1567729127
 Transform:
   m_ObjectHideFlags: 0
@@ -3102,7 +3097,9 @@ MonoBehaviour:
   actionMenu: {fileID: 0}
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
+  totalHitPoints: 0
   cell: {fileID: 0}
+  data: {fileID: 0}
   HitPoints: 0
   AttackRange: 0
   AttackFactor: 0
@@ -3420,7 +3417,9 @@ MonoBehaviour:
   actionMenu: {fileID: 0}
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
+  totalHitPoints: 0
   cell: {fileID: 0}
+  data: {fileID: 0}
   HitPoints: 0
   AttackRange: 0
   AttackFactor: 0
@@ -3881,7 +3880,9 @@ MonoBehaviour:
   actionMenu: {fileID: 0}
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
+  totalHitPoints: 0
   cell: {fileID: 0}
+  data: {fileID: 0}
   HitPoints: 0
   AttackRange: 0
   AttackFactor: 0
@@ -3958,7 +3959,9 @@ MonoBehaviour:
   actionMenu: {fileID: 0}
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
+  totalHitPoints: 0
   cell: {fileID: 0}
+  data: {fileID: 0}
   HitPoints: 0
   AttackRange: 0
   AttackFactor: 0
@@ -4140,7 +4143,9 @@ MonoBehaviour:
   actionMenu: {fileID: 0}
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
+  totalHitPoints: 0
   cell: {fileID: 0}
+  data: {fileID: 0}
   HitPoints: 0
   AttackRange: 0
   AttackFactor: 0
@@ -4293,7 +4298,9 @@ MonoBehaviour:
   actionMenu: {fileID: 0}
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
+  totalHitPoints: 0
   cell: {fileID: 0}
+  data: {fileID: 0}
   HitPoints: 0
   AttackRange: 0
   AttackFactor: 0

@@ -135,6 +135,8 @@ namespace TbsFramework.Units
             }
         }
 
+        [SerializeField] private UnitSO data;
+        public UnitSO Data => data;
         public int HitPoints;
         public int AttackRange;
         public int AttackFactor;
@@ -365,15 +367,6 @@ namespace TbsFramework.Units
                 if (UnitDestroyed != null)
                 {
                     UnitDestroyed.Invoke(this, new AttackEventArgs(aggressor, this, damage));
-                }
-
-                // Update the BattleData with the final health values
-                BattleData.PlayerUnitHealth = (this == BattleData.PlayerUnit) ? HitPoints : BattleData.PlayerUnitHealth;
-                BattleData.EnemyUnitHealth = (this == BattleData.EnemyUnit) ? HitPoints : BattleData.EnemyUnitHealth;
-
-                if (this == BattleData.EnemyUnit)
-                {
-                    Debug.Log("Bringing in new values for Enemy (" + UnitID + "): " + BattleData.EnemyUnitHealth);
                 }
 
                 OnDestroyed();

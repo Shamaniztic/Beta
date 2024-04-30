@@ -17,17 +17,8 @@ namespace TbsFramework.Units.Abilities
 
         private void SaveMovementLocation(CellGrid cellGrid)
         {
-            Vector3 unitPosition = UnitReference.transform.position;
-            Vector2 cellCoordinates = Destination.OffsetCoord;
-
-            // Store the position and coordinates in a suitable data structure or save them to a file
-            // For example, you can use PlayerPrefs or a serialized data file
-            PlayerPrefs.SetFloat($"{UnitReference.UnitID}_PosX", unitPosition.x);
-            PlayerPrefs.SetFloat($"{UnitReference.UnitID}_PosY", unitPosition.y);
-            PlayerPrefs.SetFloat($"{UnitReference.UnitID}_PosZ", unitPosition.z);
-            PlayerPrefs.SetFloat($"{UnitReference.UnitID}_CellX", cellCoordinates.x);
-            PlayerPrefs.SetFloat($"{UnitReference.UnitID}_CellY", cellCoordinates.y);
-            PlayerPrefs.Save();
+            UnitReference.Cell = Destination;
+            BattleData.AddUnitDataToDictionary(UnitReference);
         }
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)

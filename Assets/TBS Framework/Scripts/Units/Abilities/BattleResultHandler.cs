@@ -1,11 +1,15 @@
 using TbsFramework.Cells;
 using UnityEngine;
 using TbsFramework.Units;
+using System.Linq;
+using System.Collections;
 
 public class BattleResultHandler : MonoBehaviour
 {
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForEndOfFrame();
+
         Debug.Log("BattleResultHandler.Start: Restoring unit position.");
         RestoreUnitPosition();
         UpdateUnitHealth();
@@ -24,47 +28,29 @@ public class BattleResultHandler : MonoBehaviour
 
     private void RestoreUnitPosition()
     {
-        int unitID = BattleData.PlayerUnitID;
-        float posX = PlayerPrefs.GetFloat($"{unitID}_PosX");
-        float posY = PlayerPrefs.GetFloat($"{unitID}_PosY");
-        float posZ = PlayerPrefs.GetFloat($"{unitID}_PosZ");
-        float cellX = PlayerPrefs.GetFloat($"{unitID}_CellX");
-        float cellY = PlayerPrefs.GetFloat($"{unitID}_CellY");
-
-        GameObject playerUnit = GameObject.Find(BattleData.PlayerUnitName);
-        Cell destinationCell = FindCellByCoordinates(cellX, cellY);
-
-        if (playerUnit != null && destinationCell != null)
+        foreach (var unit in FindObjectsOfType<Unit>())
         {
-            playerUnit.transform.position = new Vector3(posX, posY, posZ);
-            Unit playerUnitComponent = playerUnit.GetComponent<Unit>();
-            playerUnitComponent.Cell = destinationCell;
-            destinationCell.IsTaken = true;
-        }
-        else
-        {
-            Debug.LogError("BattleResultHandler.RestoreUnitPosition: Player unit or destination cell not found.");
+            if (BattleData.UnitDataDictionary.ContainsKey(unit.UnitID))
+            {
+                unit.transform.position = BattleData.UnitDataDictionary[unit.UnitID].Position;
+                unit.Cell = BattleData.UnitDataDictionary[unit.UnitID].Cell;
+                unit.Cell.IsTaken = true;
+            }
         }
     }
 
     private void UpdateUnitHealth()
     {
-        GameObject playerUnit = GameObject.Find(BattleData.PlayerUnitName);
-        if (playerUnit != null)
+        foreach (var unit in FindObjectsOfType<Unit>())
         {
-            Unit playerUnitComponent = playerUnit.GetComponent<Unit>();
-            int previousPlayerHealth = playerUnitComponent.HitPoints;
-            playerUnitComponent.HitPoints = BattleData.PlayerUnitHealth;
-            Debug.Log($"Player unit health updated - Previous: {previousPlayerHealth}, Current: {playerUnitComponent.HitPoints}", playerUnit);
-        }
-
-        GameObject enemyUnit = GameObject.Find(BattleData.EnemyUnitName);
-        if (enemyUnit != null)
-        {
-            Unit enemyUnitComponent = enemyUnit.GetComponent<Unit>();
-            int previousEnemyHealth = enemyUnitComponent.HitPoints;
-            enemyUnitComponent.HitPoints = BattleData.EnemyUnitHealth;
-            Debug.Log($"Enemy unit health updated - Previous: {previousEnemyHealth}, Current: {enemyUnitComponent.HitPoints}", enemyUnit);
+            if (BattleData.UnitDataDictionary.ContainsKey(unit.UnitID))
+            {
+                unit.HitPoints = BattleData.UnitDataDictionary[unit.UnitID].UnitHealth;
+            }
+            else
+            {
+                unit.HitPoints = unit.TotalHitPoints;
+            }
         }
     }
 

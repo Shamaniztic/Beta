@@ -6,91 +6,33 @@ using TbsFramework.Units;
 
 public class BattleManager : MonoBehaviour
 {
-    public GameObject enemyUnitPrefab;
-    [SerializeField] private List<PlayerUnitPrefabEntry> playerUnitPrefabEntries = new List<PlayerUnitPrefabEntry>();
+    [SerializeField] private RectTransform canvasParent;
+    [SerializeField] private HealthBar playerHealthBar;
 
-    private Dictionary<string, GameObject> playerUnitPrefabs = new Dictionary<string, GameObject>();
-    private Unit playerUnit;
-    private Unit enemyUnit;
-    private HealthBar healthBar;
-
-
-    private void Awake()
-    {
-        // Convert the list of player unit prefab entries into a dictionary
-        foreach (var entry in playerUnitPrefabEntries)
-        {
-            playerUnitPrefabs[entry.unitName] = entry.prefab;
-        }
-    }
+    [Header("Debug")]
+    [SerializeField] private bool useDebug = true;
+    [SerializeField] private UnitSO debugPlayerUnit;
+    [SerializeField] private UnitSO debugEnemyUnit;
 
     private void Start()
     {
-        // Retrieve the unit data from BattleData
-        string playerUnitName = BattleData.PlayerUnitName;
-        int playerUnitPlayerNumber = BattleData.PlayerUnitPlayerNumber;
-        int enemyUnitPlayerNumber = BattleData.EnemyUnitPlayerNumber;
-
-        // Find the player unit prefab based on the unit name
-        if (playerUnitPrefabs.TryGetValue(playerUnitName, out GameObject playerUnitPrefab))
+        if (useDebug)
         {
-            // Get the Unit components from the prefabs
-            playerUnit = playerUnitPrefab.GetComponent<Unit>();
-            enemyUnit = enemyUnitPrefab.GetComponent<Unit>();
-
-            if (playerUnit != null && enemyUnit != null)
-            {
-                // Set the player numbers and initialize the units
-                playerUnit.PlayerNumber = playerUnitPlayerNumber;
-                enemyUnit.PlayerNumber = enemyUnitPlayerNumber;
-                playerUnit.Initialize();
-                enemyUnit.Initialize();
-
-                // Retrieve the health values from BattleData
-                int playerUnitHealth = BattleData.PlayerUnitHealth;
-                int enemyUnitHealth = BattleData.EnemyUnitHealth;
-
-                // Set the health values for the player unit and enemy unit
-                playerUnit.HitPoints = playerUnitHealth;
-                enemyUnit.HitPoints = enemyUnitHealth;
-
-                // Find the HealthBar script instance
-                healthBar = FindObjectOfType<HealthBar>();
-
-                // Set the unit names
-                healthBar.SetPlayerName(BattleData.PlayerUnitName);
-                healthBar.SetEnemyName(BattleData.EnemyUnitName);
-
-                // Update the health bars
-                healthBar.UpdatePlayerHealth(playerUnit.HitPoints);
-                healthBar.UpdateEnemyHealth(enemyUnit.HitPoints);
-
-                // Activate the unit prefabs
-                playerUnitPrefab.SetActive(true);
-                enemyUnitPrefab.SetActive(true);
-
-                // Debug logs for initial health values
-                Debug.Log($"BattleManager.Start: Player unit '{BattleData.PlayerUnitName}' initial health: {BattleData.PlayerUnitHealth}");
-                Debug.Log($"BattleManager.Start: Enemy unit '{BattleData.EnemyUnitName}' initial health: {BattleData.EnemyUnitHealth}");
-
-                // Assign the unit references to BattleData
-                BattleData.PlayerUnit = playerUnit;
-                BattleData.EnemyUnit = enemyUnit;
-
-                // Start the battle sequence
-                StartCoroutine(BattleSequence());
-            }
-            else
-            {
-                Debug.LogError("Player or enemy unit prefab is missing a Unit component.");
-                TransitionToMainScene();
-            }
+            Instantiate(debugPlayerUnit.AttackPhasePrefab, canvasParent);
+            Instantiate(debugEnemyUnit.AttackPhasePrefab, canvasParent);
         }
         else
         {
-            Debug.LogError($"Player unit prefab not found for unit name: {playerUnitName}");
-            TransitionToMainScene();
+            Instantiate(BattleData.CurrentPlayerFighterData.Data.AttackPhasePrefab, canvasParent);
+            Instantiate(BattleData.CurrentEnemyFighterData.Data.AttackPhasePrefab, canvasParent);
         }
+
+        // Debug logs for initial health values
+        Debug.Log($"BattleManager.Start: Player unit '{BattleData.CurrentPlayerFighterData.UnitName}' initial health: {BattleData.CurrentPlayerFighterData.UnitHealth}");
+        Debug.Log($"BattleManager.Start: Enemy unit '{BattleData.CurrentEnemyFighterData.UnitName}' initial health: {BattleData.CurrentEnemyFighterData.UnitHealth}");
+
+        // Start the battle sequence
+        StartCoroutine(BattleSequence());
     }
 
     [System.Serializable]
@@ -102,6 +44,13 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator BattleSequence()
     {
+        BattleData.CurrentPlayerFighterData.LoseHealth(1);
+        BattleData.CurrentEnemyFighterData.LoseHealth(1);
+
+        yield return new WaitForSeconds(2);
+
+        yield return StartCoroutine(EndBattle(null));
+        /*x
         // Debug: Log the initial health of both units
         Debug.Log($"Initial health - Player: {playerUnit.HitPoints}, Enemy: {enemyUnit.HitPoints}");
 
@@ -148,6 +97,7 @@ public class BattleManager : MonoBehaviour
         yield return StartCoroutine(EndBattle(null));
         // Battle sequence finished, transition back to the main scene
         TransitionToMainScene();
+        */
     }
 
     private IEnumerator PlayUnitAttackAnimation(Unit unit)
@@ -170,6 +120,7 @@ public class BattleManager : MonoBehaviour
 
     private void ApplyDamage(Unit unit, int damage)
     {
+        /*
         unit.HitPoints = Mathf.Max(0, unit.HitPoints - damage);
 
         // Update the health bars
@@ -181,6 +132,7 @@ public class BattleManager : MonoBehaviour
         {
             healthBar.UpdateEnemyHealth(enemyUnit.HitPoints);
         }
+        */
     }
 
     private bool IsUnitDefeated(Unit unit)
@@ -191,8 +143,8 @@ public class BattleManager : MonoBehaviour
     private IEnumerator EndBattle(bool? playerWon)
     {
         // Debug logs for final health values
-        Debug.Log($"BattleManager.EndBattle: Player unit '{BattleData.PlayerUnitName}' final health: {playerUnit.HitPoints}");
-        Debug.Log($"BattleManager.EndBattle: Enemy unit '{BattleData.EnemyUnitName}' final health: {enemyUnit.HitPoints}");
+        Debug.Log($"BattleManager.EndBattle: Player unit '{BattleData.CurrentPlayerFighterData.UnitHealth}' final health: {BattleData.CurrentPlayerFighterData.UnitHealth}");
+        Debug.Log($"BattleManager.EndBattle: Enemy unit '{BattleData.CurrentPlayerFighterData.UnitHealth}' final health: {BattleData.CurrentPlayerFighterData.UnitHealth}");
 
         // Perform any necessary actions based on the battle outcome
         // Example: Display a victory or defeat message, update player stats, etc.
@@ -200,14 +152,8 @@ public class BattleManager : MonoBehaviour
         // Set the battle result in the static BattleData class
         BattleData.PlayerWon = playerWon;
 
-        // Update the BattleData with the final health values
-        BattleData.PlayerUnit = playerUnit;
-        BattleData.EnemyUnit = enemyUnit;
-        BattleData.PlayerUnitHealth = playerUnit.HitPoints;
-        BattleData.EnemyUnitHealth = enemyUnit.HitPoints;
-
         // Wait for a short duration before transitioning back to the main scene
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // Transition back to the main scene
         TransitionToMainScene();

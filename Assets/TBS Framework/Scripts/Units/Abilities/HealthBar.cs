@@ -27,10 +27,16 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         // Initialize health values
-        playerMaxHealth = BattleData.PlayerUnitHealth;
-        playerCurrentHealth = playerMaxHealth;
-        enemyMaxHealth = BattleData.EnemyUnitHealth;
-        enemyCurrentHealth = enemyMaxHealth;
+        var playerInfo = BattleData.CurrentPlayerFighterData;
+        var enemyInfo = BattleData.CurrentEnemyFighterData;
+
+        SetPlayerName(playerInfo.UnitName);
+        SetEnemyName(enemyInfo.UnitName);
+
+        playerMaxHealth = playerInfo.Data.TotalHealth;
+        playerCurrentHealth = playerInfo.UnitHealth;
+        enemyMaxHealth = enemyInfo.Data.TotalHealth;
+        enemyCurrentHealth = enemyInfo.UnitHealth;
 
         UpdateHealthDisplay();
     }

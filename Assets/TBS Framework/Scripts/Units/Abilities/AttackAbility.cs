@@ -33,16 +33,12 @@ namespace TbsFramework.Units.Abilities
 
         public void StartBattle(Unit attacker, Unit defender)
         {
-            BattleData.PlayerUnitID = attacker.UnitID;
-            BattleData.EnemyUnitID = defender.UnitID;
-            BattleData.PlayerUnitName = attacker.UName;
-            BattleData.EnemyUnitName = defender.UName;
-            BattleData.PlayerUnitPlayerNumber = attacker.PlayerNumber;
-            BattleData.EnemyUnitPlayerNumber = defender.PlayerNumber;
+            Debug.Log(attacker.gameObject.name + " VS " + defender.gameObject.name);
+            BattleData.CurrentPlayerFighterID = attacker.UnitID;
+            BattleData.CurrentEnemyFighterID = defender.UnitID;
 
-            // Set the health values in the BattleData class
-            BattleData.PlayerUnitHealth = attacker.HitPoints;
-            BattleData.EnemyUnitHealth = defender.HitPoints;
+            BattleData.AddUnitDataToDictionary(attacker);
+            BattleData.AddUnitDataToDictionary(defender);
 
             SceneManager.LoadScene("BattleScene");
         }
