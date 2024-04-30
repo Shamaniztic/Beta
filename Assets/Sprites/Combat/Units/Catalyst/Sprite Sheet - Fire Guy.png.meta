@@ -1,0 +1,809 @@
+fileFormatVersion: 2
+guid: 76a5030c27cfa274ebd7ba5673f4dfee
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 860
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e63da0435203241a6907c8a13ba490
+      internalID: 1335972428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_1
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 860
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1560153f796376c4a81296c9aaa3f056
+      internalID: -554533950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_2
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 860
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b797c37fe300f2541a95231a6a48cd0d
+      internalID: 1283632154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 774
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbce39cd23263c4081d63b5bb4a9ac9
+      internalID: 1581944239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_4
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 774
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cce442793a511f8459ab8f0026f01429
+      internalID: -757530676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_5
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 774
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab1e204c2e657a4ea9fb4d68a359356
+      internalID: 1022416169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 688
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef42b9b95b8a1c4d8ce9b1b291773b3
+      internalID: -1477101873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_7
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 688
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a7492a56e3db64ca0957afbaff583e
+      internalID: -684563696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_8
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 688
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e020c8c9b16fa8468bb81d947549178
+      internalID: -1661793069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 602
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7f6685e3f20e040a12b5eeda77b0f9
+      internalID: -1679280582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_10
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 602
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 748aaedf3311b3446b4085ef30aafc5e
+      internalID: -1189980763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_11
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 602
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9dbaad421f8e204db86edd5782e939a
+      internalID: 516649058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 516
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69297e5f11b38c648b2daccca3eb29ee
+      internalID: 343285893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_13
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 516
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f8bd93fe85108446b4e6dcaf48ca15a
+      internalID: 897995679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_14
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 516
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c2ec1b37c546d4aa3780ed080dafcb
+      internalID: 2133508366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 430
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5d23d422e7a1da45bec8f2133cde8ca
+      internalID: -1723315756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_16
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 430
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07be0ed2bebdcf43b942a5ac0a84113
+      internalID: 1551095738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_17
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 430
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92958e2c5f51a641b20cfe0862bdbcf
+      internalID: -903003995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 344
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b6ec6446de6d74a9bf2ba9f47553cf
+      internalID: 555074328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_19
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 344
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0098b602bde8ea4ea88ced5e0992428
+      internalID: 556211528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_20
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 344
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eedb7d77ead46cc44964239b8e7870aa
+      internalID: 393389492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 258
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb431f27174a0bb46a094217e0088fd4
+      internalID: -178151811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_22
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 258
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ed3fcf978d59094c8ed1075d01903d1
+      internalID: 1060831794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_23
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 258
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8f63c9006c38d44857a658036fdc55
+      internalID: -467078580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 172
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ca88d5f271c60409cbdec5a3bc95d9
+      internalID: -1415149363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_25
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 172
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e491a1e42a643b43a9f26e2906a04e0
+      internalID: -251657026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_26
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 172
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a050709eb88f40e46b1e63241030cd5a
+      internalID: -548353818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17228ff7728485c448475db49c25aa35
+      internalID: -1380242921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_28
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 86
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 862659eff5a829c4c94b765d7d6d7039
+      internalID: 808529820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_29
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 86
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e14bb99461479c449e623c8e5cf3643
+      internalID: -132308951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Fire Guy_30
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 0
+        width: 301
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c97f8b441855c84988953ffc1a03920
+      internalID: -1301858594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Sprite Sheet - Fire Guy_0: 1335972428
+      Sprite Sheet - Fire Guy_1: -554533950
+      Sprite Sheet - Fire Guy_10: -1189980763
+      Sprite Sheet - Fire Guy_11: 516649058
+      Sprite Sheet - Fire Guy_12: 343285893
+      Sprite Sheet - Fire Guy_13: 897995679
+      Sprite Sheet - Fire Guy_14: 2133508366
+      Sprite Sheet - Fire Guy_15: -1723315756
+      Sprite Sheet - Fire Guy_16: 1551095738
+      Sprite Sheet - Fire Guy_17: -903003995
+      Sprite Sheet - Fire Guy_18: 555074328
+      Sprite Sheet - Fire Guy_19: 556211528
+      Sprite Sheet - Fire Guy_2: 1283632154
+      Sprite Sheet - Fire Guy_20: 393389492
+      Sprite Sheet - Fire Guy_21: -178151811
+      Sprite Sheet - Fire Guy_22: 1060831794
+      Sprite Sheet - Fire Guy_23: -467078580
+      Sprite Sheet - Fire Guy_24: -1415149363
+      Sprite Sheet - Fire Guy_25: -251657026
+      Sprite Sheet - Fire Guy_26: -548353818
+      Sprite Sheet - Fire Guy_27: -1380242921
+      Sprite Sheet - Fire Guy_28: 808529820
+      Sprite Sheet - Fire Guy_29: -132308951
+      Sprite Sheet - Fire Guy_3: 1581944239
+      Sprite Sheet - Fire Guy_30: -1301858594
+      Sprite Sheet - Fire Guy_4: -757530676
+      Sprite Sheet - Fire Guy_5: 1022416169
+      Sprite Sheet - Fire Guy_6: -1477101873
+      Sprite Sheet - Fire Guy_7: -684563696
+      Sprite Sheet - Fire Guy_8: -1661793069
+      Sprite Sheet - Fire Guy_9: -1679280582
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,16 @@
+{
+    "name": "com.crookedhead.tbsf.editor",
+    "references": [
+        "com.crookedhead.tbsf",
+        "TransitionsPlus"
+    ],
+    "includePlatforms": ["Editor"],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

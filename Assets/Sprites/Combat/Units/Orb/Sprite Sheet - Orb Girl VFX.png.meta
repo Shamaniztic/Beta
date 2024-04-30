@@ -1,0 +1,699 @@
+fileFormatVersion: 2
+guid: dfd829647f88295449198eda6e123f9d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_0
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6832cd45d2f2e049a5661f933993d0d
+      internalID: 612846168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_1
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8e8a08e4aebcf4699de391c5233fc9
+      internalID: -2068982941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_2
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0272231fe050784d8e67daa6ea127d7
+      internalID: 1655465554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_3
+      rect:
+        serializedVersion: 2
+        x: 1685
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da7238d99824ca4b93730dbaa1bad5a
+      internalID: -1899229001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_4
+      rect:
+        serializedVersion: 2
+        x: 2022
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54c80951fe6f02499bbb6682d059bd4
+      internalID: -562772140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_5
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c287b7f732fd4d24fbfb3b4070070475
+      internalID: 1042522811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_6
+      rect:
+        serializedVersion: 2
+        x: 2696
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18435cc91ed25b245a62a2fd23b01b69
+      internalID: -611582665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_7
+      rect:
+        serializedVersion: 2
+        x: 3033
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3a838c33c3fff40b01df447f79f5a1
+      internalID: -319655234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_8
+      rect:
+        serializedVersion: 2
+        x: 3370
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3209b26be074948be6f7204ba4c38a
+      internalID: -1284592258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_9
+      rect:
+        serializedVersion: 2
+        x: 3707
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c3a2e1196e33544bf768ef31c797f0
+      internalID: 1307012620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_10
+      rect:
+        serializedVersion: 2
+        x: 4044
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8fb12d78634f3345a25d7bbd0244ee2
+      internalID: 577149590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_11
+      rect:
+        serializedVersion: 2
+        x: 4381
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93f078ea6c73ee43ab2e6bf5ff8fd32
+      internalID: 1229270780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_12
+      rect:
+        serializedVersion: 2
+        x: 4718
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b319ce9ca929e4d99fd8f53ab6af1f
+      internalID: -987643554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_13
+      rect:
+        serializedVersion: 2
+        x: 5055
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8526001cc07dc24cbc2c70d0d79dfbb
+      internalID: -528535645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_14
+      rect:
+        serializedVersion: 2
+        x: 5392
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ed8f1188344bfe4fab810a1400ca993
+      internalID: 24036460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_15
+      rect:
+        serializedVersion: 2
+        x: 5729
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91ce2f430e461744b17f2aa8cdd3ac8
+      internalID: 587822320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_16
+      rect:
+        serializedVersion: 2
+        x: 6066
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335a8971979578d4b941e2a5ab15444c
+      internalID: -721792365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_17
+      rect:
+        serializedVersion: 2
+        x: 6403
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe5fff7a20c5cec48a26e2001e15291b
+      internalID: -1089655776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_18
+      rect:
+        serializedVersion: 2
+        x: 6740
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ab075e8d17265144a42563632aabb1a
+      internalID: 1250252788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_19
+      rect:
+        serializedVersion: 2
+        x: 7077
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63df3a3a79da90a4e85d7e9d5165cd9f
+      internalID: -424494902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_20
+      rect:
+        serializedVersion: 2
+        x: 7414
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7c750a2df2be2844ac715f9fa38e433
+      internalID: -730478806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_21
+      rect:
+        serializedVersion: 2
+        x: 7751
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df10e79ca317c1842a04b6614cba5fc4
+      internalID: 1574922661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_22
+      rect:
+        serializedVersion: 2
+        x: 8088
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5172ddac7598645a7b8a78afd21c2c
+      internalID: 1038002830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_23
+      rect:
+        serializedVersion: 2
+        x: 8425
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9348674c2fe1d6429546493f1dccb0d
+      internalID: 274515183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_24
+      rect:
+        serializedVersion: 2
+        x: 8762
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d0d2b6eb0e0984199be1d4fb468a77
+      internalID: 399393272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Orb Girl VFX_25
+      rect:
+        serializedVersion: 2
+        x: 9099
+        y: 0
+        width: 337
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d697e984911ad384c9d1bb50176093b2
+      internalID: -1577130579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Sprite Sheet - Orb Girl VFX_0: 612846168
+      Sprite Sheet - Orb Girl VFX_1: -2068982941
+      Sprite Sheet - Orb Girl VFX_10: 577149590
+      Sprite Sheet - Orb Girl VFX_11: 1229270780
+      Sprite Sheet - Orb Girl VFX_12: -987643554
+      Sprite Sheet - Orb Girl VFX_13: -528535645
+      Sprite Sheet - Orb Girl VFX_14: 24036460
+      Sprite Sheet - Orb Girl VFX_15: 587822320
+      Sprite Sheet - Orb Girl VFX_16: -721792365
+      Sprite Sheet - Orb Girl VFX_17: -1089655776
+      Sprite Sheet - Orb Girl VFX_18: 1250252788
+      Sprite Sheet - Orb Girl VFX_19: -424494902
+      Sprite Sheet - Orb Girl VFX_2: 1655465554
+      Sprite Sheet - Orb Girl VFX_20: -730478806
+      Sprite Sheet - Orb Girl VFX_21: 1574922661
+      Sprite Sheet - Orb Girl VFX_22: 1038002830
+      Sprite Sheet - Orb Girl VFX_23: 274515183
+      Sprite Sheet - Orb Girl VFX_24: 399393272
+      Sprite Sheet - Orb Girl VFX_25: -1577130579
+      Sprite Sheet - Orb Girl VFX_3: -1899229001
+      Sprite Sheet - Orb Girl VFX_4: -562772140
+      Sprite Sheet - Orb Girl VFX_5: 1042522811
+      Sprite Sheet - Orb Girl VFX_6: -611582665
+      Sprite Sheet - Orb Girl VFX_7: -319655234
+      Sprite Sheet - Orb Girl VFX_8: -1284592258
+      Sprite Sheet - Orb Girl VFX_9: 1307012620
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

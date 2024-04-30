@@ -1,0 +1,56 @@
+using TbsFramework.Cells;
+using UnityEngine;
+
+namespace TbsFramework.Tutorial
+{
+    public class SampleSquare : Square
+    {
+        public GameObject highlightPrefab; // Reference to the highlight prefab
+        private GameObject highlightInstance; // Instance of the highlight prefab
+
+        public override Vector3 GetCellDimensions()
+        {
+            return GetComponent<Renderer>().bounds.size;
+        }
+
+        public override void MarkAsHighlighted()
+        {
+            if (highlightPrefab != null && highlightInstance == null)
+            {
+                // Instantiate the prefab and store the reference
+                highlightInstance = Instantiate(highlightPrefab, transform.position, Quaternion.identity, transform);
+            }
+        }
+
+        public override void MarkAsPath()
+        {
+            // Similar logic can be applied here if you want a different prefab for paths
+            if (highlightPrefab != null && highlightInstance == null)
+            {
+                highlightInstance = Instantiate(highlightPrefab, transform.position, Quaternion.identity, transform);
+                // You can add a component to change the color or appearance of the path if necessary, e.g.:
+                // highlightInstance.GetComponent<Renderer>().material.color = Color.green;
+            }
+        }
+
+        public override void MarkAsReachable()
+        {
+            // Similar logic can be applied here if you want a different prefab for reachable cells
+            if (highlightPrefab != null && highlightInstance == null)
+            {
+                highlightInstance = Instantiate(highlightPrefab, transform.position, Quaternion.identity, transform);
+                // You can add a component to change the color or appearance of the reachable cell if necessary, e.g.:
+                // highlightInstance.GetComponent<Renderer>().material.color = Color.yellow;
+            }
+        }
+
+        public override void UnMark()
+        {
+            if (highlightInstance != null)
+            {
+                // Destroy the highlight instance
+                Destroy(highlightInstance);
+            }
+        }
+    }
+}

@@ -1,0 +1,831 @@
+fileFormatVersion: 2
+guid: 4d5863acddc29324e9bae5d70be4201a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_0
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1856
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7289b3e87cca6a47a8048412bb1d669
+      internalID: 2033138195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_1
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1856
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807a3d50643202f4cb36cc00209db0bb
+      internalID: 272784352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_2
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1740
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7495ee7e25cfd54aac3584bd52b90e4
+      internalID: -1165674966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_3
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1740
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad37c62a77cca342a4a851468d6c581
+      internalID: -1202344225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_4
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1740
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788aa3d96bd73324382e29d3446bed2c
+      internalID: 1542589126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_5
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1624
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d168ae5a5c01e0a448c05aa5ec57a740
+      internalID: 548707366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_6
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1624
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3d64e65a306f6479e1da3150eff642
+      internalID: 1020016160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_7
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1508
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d3bb87ce0e6b7144be9c786e1ed8573
+      internalID: 804737061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_8
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1508
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b539b872c61ac15499915f05aaa8e50a
+      internalID: 1992707036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_9
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1392
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7430ccace55daad41a7e9c0f5f90f2fd
+      internalID: 1518493141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_10
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1392
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af96a886e0e9e5a4c8a305cca776442a
+      internalID: 1153001594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_11
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1392
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07ad5261a12860e40bdb70f1cd009139
+      internalID: -1195305930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_12
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1276
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eae9df45c33fef46890619d48d8980c
+      internalID: -609245633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_13
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1276
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 867133089fda8e04f834c2297a0f20e7
+      internalID: 494924781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_14
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1160
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a65ecb2cfbf444899804694cc035ef
+      internalID: -930438070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_15
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 1160
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d2186cad9fc23409704030a04dc544
+      internalID: 206262447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_16
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1160
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cad983be647da27469a763a7018fa781
+      internalID: 1819977924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_17
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1044
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de2f37b5f2c5ce419843a263d03c086
+      internalID: -1632203767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_18
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1044
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2bdc33484196a4782d9bdad6866282
+      internalID: -50444983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_19
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 928
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb366343ee0d65f4bb8dec171b1776a2
+      internalID: 1317900715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_20
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 928
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 246a30c9f0dac2d4d80d2d6331efff12
+      internalID: 1044699327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_21
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 812
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c539350b974bb214a840d367ba09e3bf
+      internalID: -262690252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_22
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 812
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3281f9519e7ebef41a833e437ea5c9e5
+      internalID: 2027450476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_23
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 696
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0daf77f32c3e9c4ea1e3d18a69e21b5
+      internalID: -1412445028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_24
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 696
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec520270490074478fcf39bdbfdbdb7
+      internalID: -4185431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_25
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 580
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8e2afc6820f084fa9a08214944d96e
+      internalID: 858258726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_26
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 580
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f6325f5a754c594f821cc8d54cd10b7
+      internalID: 1564352837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_27
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 464
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170a0554cdb49d24599b384be691acb4
+      internalID: 2105857654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_28
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 348
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d395bc207b7421d44ac7803dd47845f8
+      internalID: 1580250375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_29
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 232
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58296dcfb6f63ab42986de1c61325d63
+      internalID: -348936218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_30
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 116
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9178910a84330f64d9936410a1e7b432
+      internalID: -205490242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Beam Guy Crit VFX3_31
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 0
+        width: 301
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c9d6fda717d60c42a393f2855bd3488
+      internalID: -1392297804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Sprite Sheet - Beam Guy Crit VFX3_0: 2033138195
+      Sprite Sheet - Beam Guy Crit VFX3_1: 272784352
+      Sprite Sheet - Beam Guy Crit VFX3_10: 1153001594
+      Sprite Sheet - Beam Guy Crit VFX3_11: -1195305930
+      Sprite Sheet - Beam Guy Crit VFX3_12: -609245633
+      Sprite Sheet - Beam Guy Crit VFX3_13: 494924781
+      Sprite Sheet - Beam Guy Crit VFX3_14: -930438070
+      Sprite Sheet - Beam Guy Crit VFX3_15: 206262447
+      Sprite Sheet - Beam Guy Crit VFX3_16: 1819977924
+      Sprite Sheet - Beam Guy Crit VFX3_17: -1632203767
+      Sprite Sheet - Beam Guy Crit VFX3_18: -50444983
+      Sprite Sheet - Beam Guy Crit VFX3_19: 1317900715
+      Sprite Sheet - Beam Guy Crit VFX3_2: -1165674966
+      Sprite Sheet - Beam Guy Crit VFX3_20: 1044699327
+      Sprite Sheet - Beam Guy Crit VFX3_21: -262690252
+      Sprite Sheet - Beam Guy Crit VFX3_22: 2027450476
+      Sprite Sheet - Beam Guy Crit VFX3_23: -1412445028
+      Sprite Sheet - Beam Guy Crit VFX3_24: -4185431
+      Sprite Sheet - Beam Guy Crit VFX3_25: 858258726
+      Sprite Sheet - Beam Guy Crit VFX3_26: 1564352837
+      Sprite Sheet - Beam Guy Crit VFX3_27: 2105857654
+      Sprite Sheet - Beam Guy Crit VFX3_28: 1580250375
+      Sprite Sheet - Beam Guy Crit VFX3_29: -348936218
+      Sprite Sheet - Beam Guy Crit VFX3_3: -1202344225
+      Sprite Sheet - Beam Guy Crit VFX3_30: -205490242
+      Sprite Sheet - Beam Guy Crit VFX3_31: -1392297804
+      Sprite Sheet - Beam Guy Crit VFX3_4: 1542589126
+      Sprite Sheet - Beam Guy Crit VFX3_5: 548707366
+      Sprite Sheet - Beam Guy Crit VFX3_6: 1020016160
+      Sprite Sheet - Beam Guy Crit VFX3_7: 804737061
+      Sprite Sheet - Beam Guy Crit VFX3_8: 1992707036
+      Sprite Sheet - Beam Guy Crit VFX3_9: 1518493141
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
