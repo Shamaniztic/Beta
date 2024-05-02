@@ -41,7 +41,7 @@ namespace TbsFramework.Grid.GridStates
             var attackAbility = _unit.GetComponent<AttackAbility>();
             if (attackAbility != null)
             {
-                Debug.Log($"AttackAbility found. isAttackSelected: {attackAbility.isAttackSelected}, IsUnitAttackable: {_unit.IsUnitAttackable(unit, _unit.Cell)}");
+                Debug.Log($"AttackAbility found. isAttackSelected: {attackAbility.IsSelected}, IsUnitAttackable: {_unit.IsUnitAttackable(unit, _unit.Cell)}");
 
                 if (_unit != unit && _isAttackModeActive && _unit.IsUnitAttackable(unit, _unit.Cell))
                 {
@@ -77,56 +77,70 @@ namespace TbsFramework.Grid.GridStates
 
         public override void OnUnitHighlighted(Unit unit)
         {
-            Debug.Log($"CellGridStateAbilitySelected.OnUnitHighlighted: Highlighting unit {unit.UnitID}");
+            // Debug.Log($"CellGridStateAbilitySelected.OnUnitHighlighted: Highlighting unit {unit.UnitID}");
             _abilities.ForEach(a => a.OnUnitHighlighted(unit, _cellGrid));
         }
 
         public override void OnUnitDehighlighted(Unit unit)
         {
-            Debug.Log($"CellGridStateAbilitySelected.OnUnitDehighlighted: Dehighlighting unit {unit.UnitID}");
+            // Debug.Log($"CellGridStateAbilitySelected.OnUnitDehighlighted: Dehighlighting unit {unit.UnitID}");
             _abilities.ForEach(a => a.OnUnitDehighlighted(unit, _cellGrid));
         }
 
         public override void OnCellClicked(Cell cell)
         {
-            Debug.Log($"CellGridStateAbilitySelected.OnCellClicked: Clicked on cell at {cell.OffsetCoord}");
+            // Debug.Log($"CellGridStateAbilitySelected.OnCellClicked: Clicked on cell at {cell.OffsetCoord}");
             _abilities.ForEach(a => a.OnCellClicked(cell, _cellGrid));
         }
 
         public override void OnCellSelected(Cell cell)
         {
-            Debug.Log($"CellGridStateAbilitySelected.OnCellSelected: Cell at {cell.OffsetCoord} selected");
+            // Debug.Log($"CellGridStateAbilitySelected.OnCellSelected: Cell at {cell.OffsetCoord} selected");
             base.OnCellSelected(cell);
             _abilities.ForEach(a => a.OnCellSelected(cell, _cellGrid));
         }
 
         public override void OnCellDeselected(Cell cell)
         {
-            Debug.Log($"CellGridStateAbilitySelected.OnCellDeselected: Cell at {cell.OffsetCoord} deselected");
+            // Debug.Log($"CellGridStateAbilitySelected.OnCellDeselected: Cell at {cell.OffsetCoord} deselected");
             base.OnCellDeselected(cell);
             _abilities.ForEach(a => a.OnCellDeselected(cell, _cellGrid));
         }
 
         public override void OnStateEnter()
         {
-            Debug.Log("CellGridStateAbilitySelected.OnStateEnter: State entered, checking ability performance");
+            //Debug.Log("CellGridStateAbilitySelected.OnStateEnter: State entered, checking ability performance");
             _unit?.OnUnitSelected();
-            _abilities.ForEach(a => a.OnAbilitySelected(_cellGrid));
-            _abilities.ForEach(a => a.Display(_cellGrid));
+            _abilities.ForEach(a => 
+            {
+                if (a is MoveAbility)
+                {
+                    a.OnAbilitySelected(_cellGrid); 
+                }
+            });
+
+
+            _abilities.ForEach(a =>
+            {
+                if (a is MoveAbility)
+                {
+                    a.Display(_cellGrid);
+                }
+            });
 
             var canPerformAction = _abilities.Select(a => a.CanPerform(_cellGrid))
                                              .DefaultIfEmpty()
                                              .Aggregate((result, next) => result || next);
             if (!canPerformAction)
             {
-                Debug.Log("CellGridStateAbilitySelected.OnStateEnter: No abilities can perform, marking unit as finished");
+                // Debug.Log("CellGridStateAbilitySelected.OnStateEnter: No abilities can perform, marking unit as finished");
                 _unit?.SetState(new UnitStateMarkedAsFinished(_unit));
             }
         }
 
         public override void OnStateExit()
         {
-            Debug.Log("CellGridStateAbilitySelected.OnStateExit: State exiting, cleaning up");
+            // Debug.Log("CellGridStateAbilitySelected.OnStateExit: State exiting, cleaning up");
             _unit?.OnUnitDeselected();
             _abilities.ForEach(a => a.OnAbilityDeselected(_cellGrid));
             _abilities.ForEach(a => a.CleanUp(_cellGrid));

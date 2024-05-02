@@ -9,6 +9,7 @@ namespace TbsFramework.Tutorial
         public GameObject pathPrefab;
         public GameObject reachablePrefab;
         public GameObject attackRangePrefab;
+        public GameObject attackReachablePrefab;
 
         private GameObject currentMarkingPrefab;
 
@@ -32,6 +33,11 @@ namespace TbsFramework.Tutorial
             ShowMarkingPrefab(reachablePrefab);
         }
 
+        public void MarkAsAttackReachable()
+        {
+            ShowMarkingPrefab(attackReachablePrefab);
+        }
+
         public void MarkAsAttackRange()
         {
             ShowMarkingPrefab(attackRangePrefab);
@@ -41,8 +47,15 @@ namespace TbsFramework.Tutorial
         {
             if (currentMarkingPrefab != null)
             {
+                //Debug.Log(currentMarkingPrefab.name);
+                if (currentMarkingPrefab.name == "Attack(Clone)")
+                {
+                    // Debug.Log("Unmarking");
+                }
+
                 Destroy(currentMarkingPrefab);
                 currentMarkingPrefab = null;
+
             }
         }
 
@@ -50,6 +63,11 @@ namespace TbsFramework.Tutorial
         {
             UnMark();
             currentMarkingPrefab = Instantiate(prefab, transform);
+
+            if (prefab.name == "Attack")
+            {
+                // Debug.Log("Show: " + prefab.name);
+            }
         }
     }
 }

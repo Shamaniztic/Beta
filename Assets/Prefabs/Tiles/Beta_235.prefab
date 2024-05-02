@@ -148,5 +148,9 @@ MonoBehaviour:
   MarkAsPathFn: []
   MarkAsHighlightedFn: []
   UnMarkFn: []
-  IsTaken: 0
   MovementCost: 1
+  highlightedPrefab: {fileID: 0}
+  pathPrefab: {fileID: 0}
+  reachablePrefab: {fileID: 0}
+  attackRangePrefab: {fileID: 951250350982836317, guid: e823056c9fa16714d88e76eb8c2d4b6a,
+    type: 3}

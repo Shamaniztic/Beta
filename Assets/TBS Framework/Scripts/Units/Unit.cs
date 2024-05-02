@@ -277,7 +277,7 @@ namespace TbsFramework.Units
         /// </summary>
         public virtual void OnUnitSelected()
         {
-            Debug.Log($"Unit.OnUnitSelected: Unit {UnitID} selected");
+            //Debug.Log($"Unit.OnUnitSelected: Unit {UnitID} selected");
             if (FindObjectOfType<CellGrid>().GetCurrentPlayerUnits().Contains(this))
             {
                 SetState(new UnitStateMarkedAsSelected(this));
@@ -290,7 +290,7 @@ namespace TbsFramework.Units
 
         public virtual void OnUnitDeselected()
         {
-            Debug.Log($"Unit.OnUnitDeselected: Unit {UnitID} deselected");
+            //Debug.Log($"Unit.OnUnitDeselected: Unit {UnitID} deselected");
             if (FindObjectOfType<CellGrid>().GetCurrentPlayerUnits().Contains(this))
             {
                 SetState(new UnitStateMarkedAsFriendly(this));
