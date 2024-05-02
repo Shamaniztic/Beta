@@ -1,31 +1,66 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TbsFramework.Units;
 
 public class BattleManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class PlayerUnitPrefabEntry
+    {
+        public string unitName;
+        public GameObject prefab;
+    }
+
+    // VARIABLES
+    [Header("References")]
     [SerializeField] private RectTransform canvasParent;
     [SerializeField] private HealthBar playerHealthBar;
+    [SerializeField] private HealthBar enemyHealthBar;
+
+    [Header("Settings")]
+    [SerializeField] private float startBattleDelay = 0.5f;
+    [SerializeField] private float defenderDelay = 0.5f;
+    [SerializeField] private float endBattleDelay = 0.5f;
 
     [Header("Debug")]
     [SerializeField] private bool useDebug = true;
     [SerializeField] private UnitSO debugPlayerUnit;
     [SerializeField] private UnitSO debugEnemyUnit;
 
+    private Animator playerAnimator;
+    private Animator enemyAnimator;
+
+    public static BattleManager Instance { get; private set; }
+
+    // EXECUTION FUNCTIONS
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
+        var playerInfo = BattleData.CurrentPlayerFighterData;
+        var enemyInfo = BattleData.CurrentEnemyFighterData;
+
         if (useDebug)
         {
-            Instantiate(debugPlayerUnit.AttackPhasePrefab, canvasParent);
-            Instantiate(debugEnemyUnit.AttackPhasePrefab, canvasParent);
+            playerAnimator = Instantiate(debugPlayerUnit.AttackPhasePrefab, canvasParent).GetComponent<Animator>();
+            enemyAnimator = Instantiate(debugEnemyUnit.AttackPhasePrefab, canvasParent).GetComponent<Animator>();
         }
         else
         {
-            Instantiate(BattleData.CurrentPlayerFighterData.Data.AttackPhasePrefab, canvasParent);
-            Instantiate(BattleData.CurrentEnemyFighterData.Data.AttackPhasePrefab, canvasParent);
+            playerAnimator = Instantiate(playerInfo.Data.AttackPhasePrefab, canvasParent).GetComponent<Animator>();
+            enemyAnimator = Instantiate(enemyInfo.Data.AttackPhasePrefab, canvasParent).GetComponent<Animator>();
         }
+
+        playerHealthBar.SetName(playerInfo.UnitName);
+        playerHealthBar.SetMaxHealth(playerInfo.Data.TotalHealth);
+        playerHealthBar.SetCurrentHealth(playerInfo.UnitHealth);
+
+        enemyHealthBar.SetName(enemyInfo.UnitName);
+        enemyHealthBar.SetMaxHealth(enemyInfo.Data.TotalHealth);
+        enemyHealthBar.SetCurrentHealth(enemyInfo.UnitHealth);
 
         // Debug logs for initial health values
         Debug.Log($"BattleManager.Start: Player unit '{BattleData.CurrentPlayerFighterData.UnitName}' initial health: {BattleData.CurrentPlayerFighterData.UnitHealth}");
@@ -35,109 +70,54 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(BattleSequence());
     }
 
-    [System.Serializable]
-    public class PlayerUnitPrefabEntry
+    // METHODS
+    public void ConnectAttack(UnitType unitType)
     {
-        public string unitName;
-        public GameObject prefab;
-    }
+        if (unitType == UnitType.Player)
+        {
+            int damage = CalculateDamage(BattleData.CurrentPlayerFighterData.UnitAttack, BattleData.CurrentEnemyFighterData.UnitDefence);
+            BattleData.CurrentEnemyFighterData.LoseHealth(damage);
+            enemyHealthBar.SetCurrentHealth(BattleData.CurrentEnemyFighterData.UnitHealth);
 
+            enemyAnimator.Play("Defend");
+        }
+        else if (unitType == UnitType.Enemy)
+        {
+            int damage = CalculateDamage(BattleData.CurrentEnemyFighterData.UnitAttack, BattleData.CurrentPlayerFighterData.UnitDefence);
+            BattleData.CurrentPlayerFighterData.LoseHealth(damage);
+            playerHealthBar.SetCurrentHealth(BattleData.CurrentPlayerFighterData.UnitHealth);
+
+            playerAnimator.Play("Defend");
+        }
+    }
+    
     private IEnumerator BattleSequence()
     {
-        BattleData.CurrentPlayerFighterData.LoseHealth(1);
-        BattleData.CurrentEnemyFighterData.LoseHealth(1);
+        yield return new WaitForSeconds(startBattleDelay);
 
-        yield return new WaitForSeconds(2);
+        playerAnimator.Play("Attack");
 
-        yield return StartCoroutine(EndBattle(null));
-        /*x
-        // Debug: Log the initial health of both units
-        Debug.Log($"Initial health - Player: {playerUnit.HitPoints}, Enemy: {enemyUnit.HitPoints}");
+        yield return new WaitForSeconds(0.1f);
+        yield return new WaitWhile(() => playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+        yield return new WaitForSeconds(defenderDelay);
 
-        // Play the player unit's attack animation
-        yield return StartCoroutine(PlayUnitAttackAnimation(playerUnit));
-
-        // Debug: Log the health before the player's attack
-        Debug.Log($"Before player's attack - Player: {playerUnit.HitPoints}, Enemy: {enemyUnit.HitPoints}");
-
-        // Player unit attacks the enemy unit
-        playerUnit.AttackHandler(enemyUnit);
-
-        // Debug: Log the health after the player's attack
-        Debug.Log($"After player's attack - Player: {playerUnit.HitPoints}, Enemy: {enemyUnit.HitPoints}");
-
-        // Check if the enemy unit is defeated
-        if (IsUnitDefeated(enemyUnit))
+        if (BattleData.CurrentEnemyFighterData.UnitHealth > 0)
         {
-            // Enemy unit is defeated, end the battle
-            yield return StartCoroutine(EndBattle(true));
-            yield break;
+            enemyAnimator.Play("Attack");
+
+            yield return new WaitForSeconds(0.1f);
+            yield return new WaitWhile(() => enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
         }
 
-        // Play the enemy unit's attack animation
-        yield return StartCoroutine(PlayUnitAttackAnimation(enemyUnit));
-
-        // Debug: Log the health before the enemy's attack
-        Debug.Log($"Before enemy's attack - Player: {playerUnit.HitPoints}, Enemy: {enemyUnit.HitPoints}");
-
-        // Enemy unit attacks the player unit
-        enemyUnit.AttackHandler(playerUnit);
-
-        // Debug: Log the health after the enemy's attack
-        Debug.Log($"After enemy's attack - Player: {playerUnit.HitPoints}, Enemy: {enemyUnit.HitPoints}");
-
-        // Check if the player unit is defeated
-        if (IsUnitDefeated(playerUnit))
-        {
-            // Player unit is defeated, end the battle
-            yield return StartCoroutine(EndBattle(false));
-            yield break;
-        }
+        yield return new WaitForSeconds(endBattleDelay);
 
         yield return StartCoroutine(EndBattle(null));
-        // Battle sequence finished, transition back to the main scene
-        TransitionToMainScene();
-        */
     }
 
-    private IEnumerator PlayUnitAttackAnimation(Unit unit)
+    private int CalculateDamage(int attackFactor, int defenseFactor)
     {
-        // Play the attack animation of the unit
-        // You can access the Animator component of the unit and trigger the attack animation
-        // Example:
-        // unit.GetComponent<Animator>().SetTrigger("Attack");
-
-        // Wait for the animation to finish
-        // You can use a fixed duration or a more sophisticated way to determine when the animation is complete
-        yield return new WaitForSeconds(1f);
-    }
-
-    private int CalculateDamage(Unit attacker, Unit defender)
-    {
-        int damage = Mathf.Max(0, attacker.AttackFactor - defender.DefenceFactor);
+        int damage = Mathf.Max(0, attackFactor - defenseFactor);
         return damage;
-    }
-
-    private void ApplyDamage(Unit unit, int damage)
-    {
-        /*
-        unit.HitPoints = Mathf.Max(0, unit.HitPoints - damage);
-
-        // Update the health bars
-        if (unit == playerUnit)
-        {
-            healthBar.UpdatePlayerHealth(playerUnit.HitPoints);
-        }
-        else if (unit == enemyUnit)
-        {
-            healthBar.UpdateEnemyHealth(enemyUnit.HitPoints);
-        }
-        */
-    }
-
-    private bool IsUnitDefeated(Unit unit)
-    {
-        return unit.HitPoints <= 0;
     }
 
     private IEnumerator EndBattle(bool? playerWon)

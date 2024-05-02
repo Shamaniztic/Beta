@@ -4,84 +4,52 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [Header("Player Health Bar")]
-    public Image playerHealthBar;
-    public TextMeshProUGUI playerHealthText;
-    private int playerMaxHealth;
-    private int playerCurrentHealth;
+    public Image fillImage;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI nameText;
+    private int maxHealth;
+    private int currentHealth;
 
-    [Header("Enemy Health Bar")]
-    public Image enemyHealthBar;
-    public TextMeshProUGUI enemyHealthText;
-    private int enemyMaxHealth;
-    private int enemyCurrentHealth;
-
-    [Header("Player Name")]
-    public TextMeshProUGUI playerNameText;
-
-    [Header("Enemy Name")]
-    public TextMeshProUGUI enemyNameText;
-
-    private float lerpSpeed = 5f; // Speed of the health bar change
-
-    private void Start()
-    {
-        // Initialize health values
-        var playerInfo = BattleData.CurrentPlayerFighterData;
-        var enemyInfo = BattleData.CurrentEnemyFighterData;
-
-        SetPlayerName(playerInfo.UnitName);
-        SetEnemyName(enemyInfo.UnitName);
-
-        playerMaxHealth = playerInfo.Data.TotalHealth;
-        playerCurrentHealth = playerInfo.UnitHealth;
-        enemyMaxHealth = enemyInfo.Data.TotalHealth;
-        enemyCurrentHealth = enemyInfo.UnitHealth;
-
-        UpdateHealthDisplay();
-    }
+    [SerializeField] private float lerpSpeed = 5f; // Speed of the health bar change
 
     private void Update()
     {
         // Smoothly transition the health bar fill amount
-        playerHealthBar.fillAmount = Mathf.Lerp(playerHealthBar.fillAmount, (float)playerCurrentHealth / playerMaxHealth, Time.deltaTime * lerpSpeed);
-        enemyHealthBar.fillAmount = Mathf.Lerp(enemyHealthBar.fillAmount, (float)enemyCurrentHealth / enemyMaxHealth, Time.deltaTime * lerpSpeed);
+        fillImage.fillAmount = Mathf.Lerp(fillImage.fillAmount, (float)currentHealth / maxHealth, Time.deltaTime * lerpSpeed);
 
         // Update text display continuously
-        playerHealthText.text = $"{playerCurrentHealth}/{playerMaxHealth}";
-        enemyHealthText.text = $"{enemyCurrentHealth}/{enemyMaxHealth}";
+        healthText.text = $"{currentHealth}/{maxHealth}";
     }
 
     public void UpdatePlayerHealth(int health)
     {
-        playerCurrentHealth = Mathf.Clamp(health, 0, playerMaxHealth);
+        currentHealth = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthDisplay();
     }
 
-    public void UpdateEnemyHealth(int health)
+    public void SetName(string name)
     {
-        enemyCurrentHealth = Mathf.Clamp(health, 0, enemyMaxHealth);
+        nameText.text = name;
+    }
+
+    public void SetMaxHealth(int maxHealth)
+    {
+        this.maxHealth = maxHealth;
         UpdateHealthDisplay();
     }
 
-    public void SetPlayerName(string name)
+    public void SetCurrentHealth(int currentHealth)
     {
-        playerNameText.text = name;
-    }
-
-    public void SetEnemyName(string name)
-    {
-        enemyNameText.text = name;
+        this.currentHealth = currentHealth;
+        UpdateHealthDisplay();
     }
 
     private void UpdateHealthDisplay()
     {
         // Update health bar fill amount
-        playerHealthBar.fillAmount = (float)playerCurrentHealth / playerMaxHealth;
-        enemyHealthBar.fillAmount = (float)enemyCurrentHealth / enemyMaxHealth;
+        //fillImage.fillAmount = (float)currentHealth / maxHealth;
 
         // Update health text
-        playerHealthText.text = $"{playerCurrentHealth}/{playerMaxHealth}";
-        enemyHealthText.text = $"{enemyCurrentHealth}/{enemyMaxHealth}";
+        healthText.text = $"{currentHealth}/{maxHealth}";
     }
 }

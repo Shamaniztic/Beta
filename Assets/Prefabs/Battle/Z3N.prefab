@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 608886316926654499}
   - component: {fileID: 3354843849542032937}
   - component: {fileID: 5273323642198557103}
+  - component: {fileID: -4287828047560769823}
   m_Layer: 0
   m_Name: Z3N
   m_TagString: Untagged
@@ -106,3 +107,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4287828047560769823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5133981627944334456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acc1083e4fbe9c43a80ca435518b88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitType: 1
