@@ -21526,6 +21526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7884127804371749569, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
         type: 3}
+      propertyPath: AttackFactor
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884127804371749569, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
+        type: 3}
       propertyPath: PlayerNumber
       value: 1
       objectReference: {fileID: 0}
@@ -54713,6 +54718,11 @@ PrefabInstance:
         type: 3}
       propertyPath: actionMenu
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884127804371749569, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
+        type: 3}
+      propertyPath: AttackFactor
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7884127804371749569, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
         type: 3}
