@@ -71,12 +71,12 @@ public class ActionMenu : MonoBehaviour
 
     private void OnAttackButtonClicked()
     {
-        Debug.Log("ActionMenu.OnAttackButtonClicked: Attempting to select AttackAbility");
+        //Debug.Log("ActionMenu.OnAttackButtonClicked: Attempting to select AttackAbility");
         var attackAbility = moveAbility.UnitReference.GetComponent<AttackAbility>();
 
         if (attackAbility != null)
         {
-            Debug.Log("ActionMenu.OnAttackButtonClicked: AttackAbility found, calling OnAbilitySelected");
+            //Debug.Log("ActionMenu.OnAttackButtonClicked: AttackAbility found, calling OnAbilitySelected");
             attackAbility.OnAbilitySelected(cellGrid);
 
             // Set the attack mode flag in the CellGridStateAbilitySelected state
@@ -89,7 +89,7 @@ public class ActionMenu : MonoBehaviour
         }
         else
         {
-            Debug.LogError("ActionMenu.OnAttackButtonClicked: AttackAbility component not found on unit");
+            //Debug.LogError("ActionMenu.OnAttackButtonClicked: AttackAbility component not found on unit");
         }
     }
 

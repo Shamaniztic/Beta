@@ -49,6 +49,7 @@ namespace TbsFramework.Units.Abilities
 
         public void ShowActionMenu(CellGrid cellGrid)
         {
+            IsSelected = false;
             actionMenu = FindObjectOfType<ActionMenu>();
             if (actionMenu != null)
             {
@@ -69,6 +70,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void Display(CellGrid cellGrid)
         {
+            if (!IsSelected)
+            {
+                return;
+            }
+
             if (UnitReference.ActionPoints > 0)
             {
                 foreach (var cell in availableDestinations)
@@ -80,6 +86,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
+            if (!IsSelected)
+            {
+                return;
+            }
+
             if (cellGrid.GetCurrentPlayerUnits().Contains(unit))
             {
                 cellGrid.cellGridState = new CellGridStateAbilitySelected(cellGrid, unit, unit.GetComponents<Ability>().ToList());
@@ -88,6 +99,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellClicked(Cell cell, CellGrid cellGrid)
         {
+            if (!IsSelected)
+            {
+                return;
+            }
+
             if (availableDestinations.Contains(cell))
             {
                 Destination = cell;
@@ -110,6 +126,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
         {
+            if (!IsSelected)
+            {
+                return;
+            }
+
             if (UnitReference.ActionPoints > 0 && availableDestinations.Contains(cell))
             {
                 currentPath = UnitReference.FindPath(cellGrid.Cells, cell);
@@ -122,6 +143,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
         {
+            if (!IsSelected)
+            {
+                return;
+            }
+
             if (UnitReference.ActionPoints > 0 && availableDestinations.Contains(cell))
             {
                 if (currentPath == null)
@@ -137,8 +163,16 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnAbilitySelected(CellGrid cellGrid)
         {
+            if (GetComponent<AttackAbility>().IsSelected)
+            {
+                return;
+            }
+
             UnitReference.CachePaths(cellGrid.Cells);
             availableDestinations = UnitReference.GetAvailableDestinations(cellGrid.Cells);
+
+            IsSelected = true;
+            Display(cellGrid);
         }
 
         public override void CleanUp(CellGrid cellGrid)

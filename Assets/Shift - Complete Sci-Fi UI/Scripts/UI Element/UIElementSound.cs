@@ -46,7 +46,7 @@ namespace Michsky.UI.Shift
 
             if (enableHoverSound == true)
             {
-                if (hoverSFX == null) { audioObject.PlayOneShot(UIManagerAsset.hoverSound); }
+                if (hoverSFX == null && audioObject != null) { audioObject.PlayOneShot(UIManagerAsset.hoverSound); }
                 else { audioObject.PlayOneShot(hoverSFX); }
             }
         }
@@ -58,7 +58,7 @@ namespace Michsky.UI.Shift
 
             if (enableClickSound == true)
             {
-                if (clickSFX == null) { audioObject.PlayOneShot(UIManagerAsset.clickSound); }
+                if (clickSFX == null && audioObject != null) { audioObject.PlayOneShot(UIManagerAsset.clickSound); }
                 else { audioObject.PlayOneShot(clickSFX); }
             }
         }

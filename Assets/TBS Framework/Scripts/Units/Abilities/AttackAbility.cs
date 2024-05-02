@@ -1,9 +1,14 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
+using TbsFramework.Tutorial;
 using TbsFramework.Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static PlasticPipe.Server.MonitorStats;
 
 namespace TbsFramework.Units.Abilities
 {
@@ -12,21 +17,26 @@ namespace TbsFramework.Units.Abilities
         public Unit UnitToAttack { get; set; }
         public int UnitToAttackID { get; set; }
 
-        public bool isAttackSelected;
-
         public CombatPreviewUI combatPreviewUI;
+        public HashSet<Cell> availableDestinations;
+
 
         public override void OnAbilitySelected(CellGrid cellGrid)
         {
+            availableDestinations = cellGrid.Cells.Where(c => UnitReference.IsCellMovableTo(c) && UnitReference.Cell.GetDistance(c) <= UnitReference.MovementPoints + UnitReference.AttackRange).ToHashSet();
             Debug.Log("AttackAbility.OnAbilitySelected: Ability selected, attempting to activate attack.");
-            isAttackSelected = true;
-            Debug.Log($"AttackAbility.OnAbilitySelected: isAttackSelected set to {isAttackSelected}");
+            IsSelected = true;
+
+            GetComponent<MoveAbility>().IsSelected = false;
+
+            //Debug.Log($"AttackAbility.OnAbilitySelected: isAttackSelected set to {isAttackSelected}");
+            Display(cellGrid);
         }
 
         public override void OnAbilityDeselected(CellGrid cellGrid)
         {
-            Debug.Log("AttackAbility.OnAbilityDeselected");
-            isAttackSelected = false;
+            //Debug.Log("AttackAbility.OnAbilityDeselected");
+            IsSelected = false;
             UnitToAttack = null;
             UnitToAttackID = 0;
         }
@@ -45,7 +55,7 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
-            if (isAttackSelected && CanPerform(cellGrid) && UnitReference.IsUnitAttackable(unit, UnitReference.Cell))
+            if (IsSelected && CanPerform(cellGrid) && UnitReference.IsUnitAttackable(unit, UnitReference.Cell))
             {
                 UnitToAttack = unit;
                 UnitToAttackID = unit.UnitID;
@@ -93,22 +103,85 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitHighlighted(Unit unit, CellGrid cellGrid)
         {
-            if (isAttackSelected && UnitReference.IsUnitAttackable(unit, UnitReference.Cell))
+            if (IsSelected && UnitReference.IsUnitAttackable(unit, UnitReference.Cell))
             {
                 ShowCombatPreview(unit);
+                (unit.Cell as SampleSquare).MarkAsAttackRange();
             }
         }
 
         public override void OnUnitDehighlighted(Unit unit, CellGrid cellGrid)
         {
+            if (!IsSelected)
+            {
+                return;
+            }
+
             combatPreviewUI.gameObject.SetActive(false);
+
+            if (UnitReference.ActionPoints > 0 && availableDestinations.Contains(unit.Cell))
+            {
+                (unit.Cell as SampleSquare).MarkAsAttackReachable();
+            }
         }
 
         public override bool CanPerform(CellGrid cellGrid)
         {
             bool canPerform = UnitReference.ActionPoints > 0;
-            Debug.Log($"AttackAbility.CanPerform: {canPerform}");
+            //Debug.Log($"AttackAbility.CanPerform: {canPerform}");
             return canPerform;
+        }
+
+        public override void Display(CellGrid cellGrid)
+        {
+            if (!IsSelected)
+            {
+                return;
+            }
+
+            foreach (var cell in availableDestinations)
+            {
+                (cell as SampleSquare as SampleSquare).MarkAsAttackReachable();
+            }
+        }
+
+        public override void CleanUp(CellGrid cellGrid)
+        {
+            if (!IsSelected)
+            {
+                return;
+            }
+
+            foreach (var cell in availableDestinations)
+            {
+                cell.UnMark();
+            }
+        }
+
+        public override void OnCellSelected(Cell cell, CellGrid cellGrid)
+        {
+            if (!IsSelected)
+            {
+                return;
+            }
+
+            if (UnitReference.ActionPoints > 0 && availableDestinations.Contains(cell))
+            {
+                (cell as SampleSquare).MarkAsAttackRange();
+            }
+        }
+
+        public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
+        {
+            if (!IsSelected)
+            {
+                return;
+            }
+
+            if (UnitReference.ActionPoints > 0 && availableDestinations.Contains(cell))
+            {
+                (cell as SampleSquare).MarkAsAttackReachable();
+            }
         }
     }
 }

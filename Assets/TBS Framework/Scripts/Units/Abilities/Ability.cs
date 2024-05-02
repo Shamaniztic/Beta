@@ -16,6 +16,7 @@ namespace TbsFramework.Units.Abilities
 
         public event EventHandler<(bool isNetworkInvoked, IDictionary<string, string> actionParams)> AbilityUsed;
 
+        public bool IsSelected = false;
 
         public IEnumerator Execute(CellGrid cellGrid, Action<CellGrid> preAction, Action<CellGrid> postAction, bool isNetworkInvoked = false)
         {
