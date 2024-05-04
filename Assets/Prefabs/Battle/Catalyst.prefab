@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 328819662259306145}
   - component: {fileID: 4648083621574051651}
   - component: {fileID: -949749333905891508}
+  - component: {fileID: -1881052719271563023}
+  - component: {fileID: -7629151661934176316}
   m_Layer: 0
   m_Name: Catalyst
   m_TagString: Untagged
@@ -120,3 +122,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 0
+--- !u!114 &-1881052719271563023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2613630451763930170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d32249e76d9ba43b78f2ee7f7a2415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7629151661934176316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2613630451763930170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5575a8d6fdb366944bbaed3691ef0275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3580147911673802082}
   - component: {fileID: 1735056796332020474}
   - component: {fileID: -3595017416425423285}
+  - component: {fileID: -2228157317131363744}
+  - component: {fileID: 6737855543636324700}
   m_Layer: 0
   m_Name: Z3NAttack
   m_TagString: Untagged
@@ -120,3 +122,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 0
+--- !u!114 &-2228157317131363744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971674174231419419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d32249e76d9ba43b78f2ee7f7a2415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6737855543636324700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971674174231419419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5575a8d6fdb366944bbaed3691ef0275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

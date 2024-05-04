@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3354843849542032937}
   - component: {fileID: 5273323642198557103}
   - component: {fileID: -4287828047560769823}
+  - component: {fileID: 6551242291604408886}
+  - component: {fileID: 6783209513216644544}
   m_Layer: 0
   m_Name: Z3N
   m_TagString: Untagged
@@ -120,3 +122,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitType: 1
+--- !u!114 &6551242291604408886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5133981627944334456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d32249e76d9ba43b78f2ee7f7a2415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6783209513216644544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5133981627944334456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5575a8d6fdb366944bbaed3691ef0275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

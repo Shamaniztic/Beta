@@ -442,7 +442,6 @@ GameObject:
   - component: {fileID: 1620971280991857836}
   - component: {fileID: 4190942483878177017}
   - component: {fileID: 5725540820641924591}
-  - component: {fileID: 4974363194737057908}
   - component: {fileID: 4719660479441332739}
   - component: {fileID: 5221339510376149542}
   - component: {fileID: 7856983793289178650}
@@ -589,33 +588,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1875, y: 1.1875}
   m_EdgeRadius: 0
---- !u!114 &4974363194737057908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644408204204354852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85fb1d8deab68da45903617c176baa15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MarkAsAttackingFn:
-  - {fileID: 0}
-  MarkAsDefendingFn:
-  - {fileID: 0}
-  MarkAsSelectedFn:
-  - {fileID: 0}
-  MarkAsFriendlyFn:
-  - {fileID: 0}
-  MarkAsFinishedFn:
-  - {fileID: 0}
-  MarkAsDestroyedFn: []
-  MarkAsReachableEnemyFn:
-  - {fileID: 0}
-  UnMarkFn:
-  - {fileID: 0}
 --- !u!114 &4719660479441332739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,10 +600,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c371683a573e24dbbe3ef7c7d181c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UName: 
+  actionMenu: {fileID: 0}
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
+  totalHitPoints: 0
   cell: {fileID: 0}
-  TheName: Brujah
+  data: {fileID: 0}
   HitPoints: 15
   AttackRange: 3
   AttackFactor: 3
@@ -652,6 +627,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fa7140db80b3b498d5b8472c717f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSelected: 0
+  combatPreviewUI: {fileID: 0}
 --- !u!114 &7856983793289178650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,6 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b212915272f70f40899729e7af922c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSelected: 0
 --- !u!114 &-7742607207081314730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,6 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191c517e72f4f6144b52a5eed6ff2582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSelected: 0
 --- !u!1 &9052266264057669526
 GameObject:
   m_ObjectHideFlags: 0
