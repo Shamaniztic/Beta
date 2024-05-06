@@ -11,6 +11,7 @@ using TbsFramework.Grid;
 using TbsFramework.Players.AI.Actions;
 using TbsFramework.Players.AI.Evaluators;
 using TbsFramework.Units.Abilities;
+using TbsFramework.Players;
 
 namespace TbsFramework.Units
 {
@@ -207,6 +208,11 @@ namespace TbsFramework.Units
 
         public virtual void OnMouseDown()
         {
+            if (FindObjectOfType<HumanPlayer>().CurrentUnit != this)
+            {
+                return;
+            }
+
             Debug.Log($"Unit.OnMouseDown: unit={name}, PlayerNumber={PlayerNumber}");
             if (UnitClicked != null)
             {

@@ -17,6 +17,8 @@ namespace TbsFramework.Players
 
         public bool HasUnitsLeftInTurn => currentUnitIndex < units.Length;
 
+        public Unit CurrentUnit => units[currentUnitIndex];
+
         // METHODS
         public override void Play(CellGrid cellGrid)
         {
