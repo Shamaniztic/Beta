@@ -8,7 +8,6 @@ using TbsFramework.Tutorial;
 using TbsFramework.Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static PlasticPipe.Server.MonitorStats;
 
 namespace TbsFramework.Units.Abilities
 {

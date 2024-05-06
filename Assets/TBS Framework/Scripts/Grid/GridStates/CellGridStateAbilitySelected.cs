@@ -65,7 +65,7 @@ namespace TbsFramework.Grid.GridStates
 
                     // Reset the attack mode flag and exit the state if the attack conditions are not met
                     SetAttackModeActive(false);
-                    _cellGrid.cellGridState = new CellGridStateWaitingForInput(_cellGrid);
+                    //_cellGrid.cellGridState = new CellGridStateWaitingForInput(_cellGrid);
                 }
             }
             else
