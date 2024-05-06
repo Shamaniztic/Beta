@@ -4,6 +4,7 @@ using System.Linq;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
+using TbsFramework.Players;
 using UnityEngine;
 
 namespace TbsFramework.Units.Abilities
@@ -86,10 +87,12 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
-            if (!IsSelected)
+            if (IsSelected)
             {
                 return;
             }
+
+            IsSelected = true;
 
             if (cellGrid.GetCurrentPlayerUnits().Contains(unit))
             {
@@ -126,7 +129,7 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
         {
-            if (!IsSelected)
+            if (!IsSelected || FindObjectOfType<HumanPlayer>().CurrentUnit != UnitReference)
             {
                 return;
             }
@@ -143,7 +146,7 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
         {
-            if (!IsSelected)
+            if (!IsSelected || FindObjectOfType<HumanPlayer>().CurrentUnit != UnitReference)
             {
                 return;
             }

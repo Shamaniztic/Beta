@@ -7,6 +7,7 @@ using TbsFramework.Grid.GridStates;
 using TbsFramework.Grid.TurnResolvers;
 using TbsFramework.Grid.UnitGenerators;
 using TbsFramework.Players;
+using TbsFramework.Tutorial;
 using TbsFramework.Units;
 using TbsFramework.Units.Abilities;
 using UnityEngine;
@@ -301,6 +302,16 @@ namespace TbsFramework.Grid
         /// </summary>
         private void EndTurnExecute(bool isNetworkInvoked=false)
         {
+            foreach (var square in FindObjectsOfType<SampleSquare>())
+            {
+                square.UnMark();
+            }
+
+            foreach (var ability in FindObjectsOfType<Ability>())
+            {
+                ability.IsSelected = false;
+            }
+
             if (CurrentPlayer is HumanPlayer human)
             {
                 human.IncrementCurrentUnitIndex();
