@@ -301,6 +301,16 @@ namespace TbsFramework.Grid
         /// </summary>
         private void EndTurnExecute(bool isNetworkInvoked=false)
         {
+            if (CurrentPlayer is HumanPlayer human)
+            {
+                human.IncrementCurrentUnitIndex();
+
+                if (human.HasUnitsLeftInTurn)
+                {
+                    return;
+                }
+            }
+
             cellGridState = new CellGridStateBlockInput(this);
             bool isGameFinished = CheckGameFinished();
             if (isGameFinished)
