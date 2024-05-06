@@ -18,7 +18,7 @@ namespace TbsFramework.Players
 
         public bool HasUnitsLeftInTurn => currentUnitIndex < units.Length;
 
-        public Unit CurrentUnit => units[currentUnitIndex];
+        public Unit CurrentUnit => currentUnitIndex >= units.Length ? null : units[currentUnitIndex];
 
         // EXECUTION FUNCTIONS
         private IEnumerator Start()
@@ -37,8 +37,15 @@ namespace TbsFramework.Players
         {
             currentUnitIndex++;
 
-            
-            (CurrentUnit.Cell).MarkAsHighlighted();
+            if (HasUnitsLeftInTurn)
+            {
+                (CurrentUnit.Cell).MarkAsHighlighted();
+            }
+        }
+
+        public bool IsCurrentUnit(Unit unit)
+        {
+            return unit == CurrentUnit;
         }
     }
 }

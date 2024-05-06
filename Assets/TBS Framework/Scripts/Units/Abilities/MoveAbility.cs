@@ -142,7 +142,7 @@ namespace TbsFramework.Units.Abilities
                 return;
             }
 
-            if (!IsSelected || FindObjectOfType<HumanPlayer>().CurrentUnit != UnitReference)
+            if (!IsSelected || !FindObjectOfType<HumanPlayer>().IsCurrentUnit(UnitReference))
             {
                 return;
             }
@@ -164,7 +164,7 @@ namespace TbsFramework.Units.Abilities
                 return;
             }
 
-            if (!IsSelected || FindObjectOfType<HumanPlayer>().CurrentUnit != UnitReference)
+            if (!IsSelected || !FindObjectOfType<HumanPlayer>().IsCurrentUnit(UnitReference))
             {
                 return;
             }
@@ -189,7 +189,7 @@ namespace TbsFramework.Units.Abilities
                 return;
             }
 
-            if (FindObjectOfType<HumanPlayer>().CurrentUnit != UnitReference)
+            if (!FindObjectOfType<HumanPlayer>().IsCurrentUnit(UnitReference))
             {
                 return;
             }

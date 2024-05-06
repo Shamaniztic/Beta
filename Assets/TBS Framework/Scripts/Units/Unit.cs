@@ -208,7 +208,7 @@ namespace TbsFramework.Units
 
         public virtual void OnMouseDown()
         {
-            if (FindObjectOfType<HumanPlayer>().CurrentUnit != this)
+            if (!FindObjectOfType<HumanPlayer>().IsCurrentUnit(this))
             {
                 return;
             }
