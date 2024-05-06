@@ -5,6 +5,8 @@ using TbsFramework.Cells;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
 using TbsFramework.Players;
+using TbsFramework.Tutorial;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace TbsFramework.Units.Abilities
@@ -43,6 +45,13 @@ namespace TbsFramework.Units.Abilities
                         actionMenu.SetPosition(UnitReference.transform.position); // Pass the unit's position
                         actionMenu.ShowActionMenu();
                     }
+
+                    foreach (var square in FindObjectsOfType<SampleSquare>())
+                    {
+                        square.UnMark();
+                    }
+
+                    IsSelected = false;
                 }
             }
             yield return base.Act(cellGrid, isNetworkInvoked);
@@ -50,7 +59,6 @@ namespace TbsFramework.Units.Abilities
 
         public void ShowActionMenu(CellGrid cellGrid)
         {
-            IsSelected = false;
             actionMenu = FindObjectOfType<ActionMenu>();
             if (actionMenu != null)
             {
@@ -87,11 +95,6 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
-            if (IsSelected)
-            {
-                return;
-            }
-
             IsSelected = true;
 
             if (cellGrid.GetCurrentPlayerUnits().Contains(unit))
@@ -102,6 +105,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellClicked(Cell cell, CellGrid cellGrid)
         {
+            if (FindObjectOfType<ActionMenu>(true).gameObject.activeInHierarchy)
+            {
+                return;
+            }
+
             if (!IsSelected)
             {
                 return;
@@ -129,6 +137,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellSelected(Cell cell, CellGrid cellGrid)
         {
+            if (FindObjectOfType<ActionMenu>(true).gameObject.activeInHierarchy)
+            {
+                return;
+            }
+
             if (!IsSelected || FindObjectOfType<HumanPlayer>().CurrentUnit != UnitReference)
             {
                 return;
@@ -146,6 +159,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnCellDeselected(Cell cell, CellGrid cellGrid)
         {
+            if (FindObjectOfType<ActionMenu>(true).gameObject.activeInHierarchy)
+            {
+                return;
+            }
+
             if (!IsSelected || FindObjectOfType<HumanPlayer>().CurrentUnit != UnitReference)
             {
                 return;
@@ -167,6 +185,11 @@ namespace TbsFramework.Units.Abilities
         public override void OnAbilitySelected(CellGrid cellGrid)
         {
             if (GetComponent<AttackAbility>().IsSelected)
+            {
+                return;
+            }
+
+            if (FindObjectOfType<HumanPlayer>().CurrentUnit != UnitReference)
             {
                 return;
             }

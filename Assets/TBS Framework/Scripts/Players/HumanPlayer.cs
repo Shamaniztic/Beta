@@ -1,3 +1,4 @@
+using System.Collections;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
 using TbsFramework.Units;
@@ -19,6 +20,13 @@ namespace TbsFramework.Players
 
         public Unit CurrentUnit => units[currentUnitIndex];
 
+        // EXECUTION FUNCTIONS
+        private IEnumerator Start()
+        {
+            yield return new WaitForSeconds(0.2f);
+            (CurrentUnit.Cell).MarkAsHighlighted();
+        }
+
         // METHODS
         public override void Play(CellGrid cellGrid)
         {
@@ -28,6 +36,9 @@ namespace TbsFramework.Players
         public void IncrementCurrentUnitIndex()
         {
             currentUnitIndex++;
+
+            
+            (CurrentUnit.Cell).MarkAsHighlighted();
         }
     }
 }
