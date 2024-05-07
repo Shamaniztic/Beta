@@ -358,6 +358,7 @@ namespace TbsFramework.Grid
                     ability.OnTurnEnd(this);
                 }
             }
+
             TransitionResult transitionResult = GetComponent<TurnResolver>().ResolveTurn(this);
 
             PlayableUnits = transitionResult.PlayableUnits;
