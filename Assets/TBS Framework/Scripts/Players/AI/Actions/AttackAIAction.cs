@@ -53,6 +53,7 @@ namespace TbsFramework.Players.AI.Actions
 
             if (enemiesInRange.Count == 0)
             {
+                UnityEngine.Debug.LogError("No-one in range");
                 return;
             }
 
@@ -91,11 +92,14 @@ namespace TbsFramework.Players.AI.Actions
         }
         public override IEnumerator Execute(Player player, Unit unit, CellGrid cellGrid)
         {
-            yield break;
+            if (Target == null)
+            {
+                UnityEngine.Debug.LogError("Target is null btw");
+            }
+
             unit.GetComponent<AttackAbility>().UnitToAttack = Target;
             unit.GetComponent<AttackAbility>().UnitToAttackID = Target.UnitID;
             yield return StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(cellGrid));
-            yield return new WaitForSeconds(0.5f);
         }
         public override void CleanUp(Player player, Unit unit, CellGrid cellGrid)
         {

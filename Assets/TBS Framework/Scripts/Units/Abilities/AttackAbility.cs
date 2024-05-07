@@ -9,6 +9,7 @@ using TbsFramework.Tutorial;
 using TbsFramework.Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.UI.CanvasScaler;
 
 namespace TbsFramework.Units.Abilities
 {
@@ -43,9 +44,15 @@ namespace TbsFramework.Units.Abilities
 
         public void StartBattle(Unit attacker, Unit defender)
         {
-            Debug.Log(attacker.gameObject.name + " VS " + defender.gameObject.name);
-            BattleData.CurrentPlayerFighterID = attacker.UnitID;
-            BattleData.CurrentEnemyFighterID = defender.UnitID;
+            var attackerPlayer = FindObjectsOfType<Player>().FirstOrDefault(player => player.PlayerNumber == attacker.PlayerNumber);
+            var defenderPlayer = FindObjectsOfType<Player>().FirstOrDefault(player => player.PlayerNumber == defender.PlayerNumber);
+
+            Debug.Log(attackerPlayer.name + " is attacking " + defenderPlayer.name);
+
+            BattleData.CurrentPlayerFighterID = attackerPlayer is HumanPlayer ? attacker.UnitID : defender.UnitID;
+            BattleData.CurrentEnemyFighterID = attackerPlayer is AIPlayer ? attacker.UnitID : defender.UnitID;
+
+            BattleData.PlayerIsAttacker = attackerPlayer is HumanPlayer;
 
             BattleData.AddUnitDataToDictionary(attacker);
             BattleData.AddUnitDataToDictionary(defender);
@@ -87,7 +94,7 @@ namespace TbsFramework.Units.Abilities
             }
             else
             {
-                BattleData.UsedPlayerUnits = 0;
+                BattleData.UsedPlayerUnits = 10000;
             }
 
             foreach (var unit in FindObjectsOfType<Unit>())
@@ -108,7 +115,7 @@ namespace TbsFramework.Units.Abilities
             }
             else
             {
-                Debug.Log("AttackAbility.Act: Cannot perform attack");
+                Debug.Log("AttackAbility.Act: Cannot perform attack. CanPerform: " + CanPerform(cellGrid) + "; Unit: " + (UnitToAttack == null ? " NULL" : UnitToAttack.name));
             }
             yield return null;
         }

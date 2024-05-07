@@ -8996,6 +8996,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1403461030}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &315682620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315682622}
+  - component: {fileID: 315682621}
+  m_Layer: 0
+  m_Name: Debug Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &315682621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315682620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9801de46a21b2745a448f91c2304465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &315682622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315682620}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &315779785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21037,6 +21081,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 780274615}
     m_Modifications:
+    - target: {fileID: 3267860390921354755, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
+        type: 3}
+      propertyPath: combatPreviewUI
+      value: 
+      objectReference: {fileID: 384811554}
     - target: {fileID: 5876942060723768455, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
         type: 3}
       propertyPath: m_Name
@@ -21071,7 +21120,7 @@ PrefabInstance:
     - target: {fileID: 7884127804371749569, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
         type: 3}
       propertyPath: AttackFactor
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7884127804371749569, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
         type: 3}
@@ -45784,12 +45833,12 @@ PrefabInstance:
     - target: {fileID: -2845802787710611296, guid: a741aeab228b1914d8ff265b5b0f8558,
         type: 3}
       propertyPath: AttackRange
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -2845802787710611296, guid: a741aeab228b1914d8ff265b5b0f8558,
         type: 3}
       propertyPath: AttackFactor
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -2845802787710611296, guid: a741aeab228b1914d8ff265b5b0f8558,
         type: 3}
@@ -45865,6 +45914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Catalyst
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218854648118386562, guid: a741aeab228b1914d8ff265b5b0f8558,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3557635880530472631, guid: a741aeab228b1914d8ff265b5b0f8558, type: 3}
@@ -53057,6 +53111,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brujah
       objectReference: {fileID: 0}
+    - target: {fileID: 8644408204204354852, guid: 0069bf1b2a324ed44ac7ba74074ac5ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: -7742607207081314730, guid: 0069bf1b2a324ed44ac7ba74074ac5ca, type: 3}
@@ -56416,6 +56475,11 @@ PrefabInstance:
       propertyPath: actionMenu
       value: 
       objectReference: {fileID: 4482029788317585435}
+    - target: {fileID: -5023885192528030059, guid: 5c81cb15eb0797d43820062716c8de9a,
+        type: 3}
+      propertyPath: AttackRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -5023885192528030059, guid: 5c81cb15eb0797d43820062716c8de9a,
         type: 3}
       propertyPath: totalHitPoints
@@ -64152,3 +64216,4 @@ SceneRoots:
   - {fileID: 261281363}
   - {fileID: 1465269298}
   - {fileID: 1367850412}
+  - {fileID: 315682622}
