@@ -9,6 +9,7 @@ using TbsFramework.Tutorial;
 using TbsFramework.Units;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.UI.CanvasScaler;
 
 namespace TbsFramework.Units.Abilities
 {
@@ -93,7 +94,7 @@ namespace TbsFramework.Units.Abilities
             }
             else
             {
-                BattleData.UsedPlayerUnits = 0;
+                BattleData.UsedPlayerUnits = 10000;
             }
 
             foreach (var unit in FindObjectsOfType<Unit>())
@@ -114,7 +115,7 @@ namespace TbsFramework.Units.Abilities
             }
             else
             {
-                Debug.Log("AttackAbility.Act: Cannot perform attack");
+                Debug.Log("AttackAbility.Act: Cannot perform attack. CanPerform: " + CanPerform(cellGrid) + "; Unit: " + (UnitToAttack == null ? " NULL" : UnitToAttack.name));
             }
             yield return null;
         }

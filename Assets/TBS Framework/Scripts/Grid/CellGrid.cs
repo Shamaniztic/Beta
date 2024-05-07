@@ -387,6 +387,11 @@ namespace TbsFramework.Grid
                 unit.OnTurnStart();
             }
             CurrentPlayer.Play(this);
+
+            if (CurrentPlayer is HumanPlayer player)
+            {
+                player.SetUnitsUsedValue(0);
+            }
         }
 
         public List<Unit> GetCurrentPlayerUnits()

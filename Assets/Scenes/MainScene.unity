@@ -21081,6 +21081,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 780274615}
     m_Modifications:
+    - target: {fileID: 3267860390921354755, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
+        type: 3}
+      propertyPath: combatPreviewUI
+      value: 
+      objectReference: {fileID: 384811554}
     - target: {fileID: 5876942060723768455, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
         type: 3}
       propertyPath: m_Name
@@ -21115,7 +21120,7 @@ PrefabInstance:
     - target: {fileID: 7884127804371749569, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
         type: 3}
       propertyPath: AttackFactor
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7884127804371749569, guid: fd54d1ea0a1b4344796ff41f986fa9a0,
         type: 3}
@@ -45828,12 +45833,12 @@ PrefabInstance:
     - target: {fileID: -2845802787710611296, guid: a741aeab228b1914d8ff265b5b0f8558,
         type: 3}
       propertyPath: AttackRange
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -2845802787710611296, guid: a741aeab228b1914d8ff265b5b0f8558,
         type: 3}
       propertyPath: AttackFactor
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -2845802787710611296, guid: a741aeab228b1914d8ff265b5b0f8558,
         type: 3}
@@ -45909,6 +45914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Catalyst
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218854648118386562, guid: a741aeab228b1914d8ff265b5b0f8558,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3557635880530472631, guid: a741aeab228b1914d8ff265b5b0f8558, type: 3}
@@ -53101,6 +53111,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brujah
       objectReference: {fileID: 0}
+    - target: {fileID: 8644408204204354852, guid: 0069bf1b2a324ed44ac7ba74074ac5ca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: -7742607207081314730, guid: 0069bf1b2a324ed44ac7ba74074ac5ca, type: 3}
@@ -56460,6 +56475,11 @@ PrefabInstance:
       propertyPath: actionMenu
       value: 
       objectReference: {fileID: 4482029788317585435}
+    - target: {fileID: -5023885192528030059, guid: 5c81cb15eb0797d43820062716c8de9a,
+        type: 3}
+      propertyPath: AttackRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -5023885192528030059, guid: 5c81cb15eb0797d43820062716c8de9a,
         type: 3}
       propertyPath: totalHitPoints

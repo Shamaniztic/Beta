@@ -59,6 +59,12 @@ public class BattleResultHandler : MonoBehaviour
         {
             if (BattleData.UnitDataDictionary.ContainsKey(unit.UnitID))
             {
+                if (BattleData.UnitDataDictionary[unit.UnitID].UnitHealth <= 0)
+                {
+                    unit.DefendHandler(unit, 1000);
+                    continue;
+                }
+
                 unit.HitPoints = BattleData.UnitDataDictionary[unit.UnitID].UnitHealth;
             }
             else

@@ -210,6 +210,11 @@ namespace TbsFramework.Units.Abilities
 
         public override void CleanUp(CellGrid cellGrid)
         {
+            if (availableDestinations == null)
+            {
+                return;
+            }
+
             foreach (var cell in availableDestinations)
             {
                 cell.UnMark();
