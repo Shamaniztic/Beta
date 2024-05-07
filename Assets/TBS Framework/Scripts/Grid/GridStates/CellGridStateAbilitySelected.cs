@@ -38,6 +38,9 @@ namespace TbsFramework.Grid.GridStates
             Debug.Log($"CellGridStateAbilitySelected.OnUnitClicked: Clicked on unit {unit.UnitID}");
             base.OnUnitClicked(unit);
 
+            _abilities.ForEach(a => a.OnUnitClicked(unit, _cellGrid));
+            return;
+
             var attackAbility = _unit.GetComponent<AttackAbility>();
             if (attackAbility != null)
             {

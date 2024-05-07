@@ -22,7 +22,7 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnAbilitySelected(CellGrid cellGrid)
         {
-            availableDestinations = cellGrid.Cells.Where(c => UnitReference.IsCellMovableTo(c) && UnitReference.Cell.GetDistance(c) <= UnitReference.MovementPoints + UnitReference.AttackRange).ToHashSet();
+            availableDestinations = cellGrid.Cells.Where(c => UnitReference.Cell.GetDistance(c) <= UnitReference.AttackRange).ToHashSet();
             Debug.Log("AttackAbility.OnAbilitySelected: Ability selected, attempting to activate attack.");
             IsSelected = true;
 
@@ -59,19 +59,42 @@ namespace TbsFramework.Units.Abilities
                 UnitToAttack = unit;
                 UnitToAttackID = unit.UnitID;
                 StartCoroutine(Act(cellGrid)); // This line starts the Act coroutine
+                Debug.Log("Attack!");
+            }
+
+            if (!IsSelected)
+            {
+                Debug.Log("Not selected...");
+            }
+
+            if (!CanPerform(cellGrid))
+            {
+                Debug.Log("Can't perform...");
+            }
+
+            if (!UnitReference.IsUnitAttackable(unit, UnitReference.Cell))
+            {
+                Debug.Log("Not attackable...");
             }
         }
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
+            foreach (var unit in FindObjectsOfType<Unit>())
+            {
+                unit.Cell = cellGrid.Cells.FirstOrDefault(cell => cell.CurrentUnits.Contains(unit));
+                BattleData.AddUnitDataToDictionary(unit);
+            }
+
             Debug.Log("AttackAbility.Act: Started");
             if (CanPerform(cellGrid) && UnitToAttack != null)
             {
                 Debug.Log($"AttackAbility.Act: Attacking unit {UnitToAttack.name}");
-                UnitReference.AttackHandler(UnitToAttack);
+                // UnitReference.AttackHandler(UnitToAttack);
+                StartBattle(UnitReference, UnitToAttack);
                 yield return new WaitForSeconds(0.5f);
-                UnitToAttack = null;
-                UnitToAttackID = 0;
+                //UnitToAttack = null;
+                //UnitToAttackID = 0;
             }
             else
             {

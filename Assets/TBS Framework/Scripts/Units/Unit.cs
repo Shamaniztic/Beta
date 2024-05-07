@@ -208,11 +208,6 @@ namespace TbsFramework.Units
 
         public virtual void OnMouseDown()
         {
-            if (!FindObjectOfType<HumanPlayer>().IsCurrentUnit(this))
-            {
-                return;
-            }
-
             Debug.Log($"Unit.OnMouseDown: unit={name}, PlayerNumber={PlayerNumber}");
             if (UnitClicked != null)
             {
@@ -515,6 +510,11 @@ namespace TbsFramework.Units
 
         public IList<Cell> FindPath(List<Cell> cells, Cell destination)
         {
+            if (cachedPaths == null)
+            {
+                CachePaths(cells);
+            }
+
             if (cachedPaths.TryGetValue(destination, out var path))
             {
                 return path;

@@ -3,16 +3,24 @@ using UnityEngine;
 using TbsFramework.Units;
 using System.Linq;
 using System.Collections;
+using TbsFramework.Players;
+using TbsFramework.Grid;
 
 public class BattleResultHandler : MonoBehaviour
 {
     private IEnumerator Start()
     {
+        if (BattleData.CurrentPlayerFighterData == null)
+        {
+            yield break;
+        }
+
         yield return new WaitForEndOfFrame();
 
         Debug.Log("BattleResultHandler.Start: Restoring unit position.");
         RestoreUnitPosition();
         UpdateUnitHealth();
+        FindObjectOfType<HumanPlayer>().SetCurrentUnitIndex(BattleData.CurrentPlayerFighterID);
 
         if (BattleData.PlayerWon.HasValue)
         {
@@ -23,6 +31,7 @@ public class BattleResultHandler : MonoBehaviour
         else
         {
             Debug.Log("BattleResultHandler.Start: No battle result to handle.");
+            FindObjectOfType<CellGrid>().EndTurn();
         }
     }
 
@@ -33,7 +42,7 @@ public class BattleResultHandler : MonoBehaviour
             if (BattleData.UnitDataDictionary.ContainsKey(unit.UnitID))
             {
                 unit.transform.position = BattleData.UnitDataDictionary[unit.UnitID].Position;
-                unit.Cell = BattleData.UnitDataDictionary[unit.UnitID].Cell;
+                unit.Cell = FindObjectsOfType<Cell>().FirstOrDefault(cell => cell.OffsetCoord == BattleData.UnitDataDictionary[unit.UnitID].CellOffset);
                 unit.Cell.IsTaken = true;
             }
         }

@@ -189,7 +189,7 @@ namespace TbsFramework.Units.Abilities
                 return;
             }
 
-            if (!FindObjectOfType<HumanPlayer>().IsCurrentUnit(UnitReference))
+            if (cellGrid.CurrentPlayer is HumanPlayer player && !player.IsCurrentUnit(UnitReference))
             {
                 return;
             }

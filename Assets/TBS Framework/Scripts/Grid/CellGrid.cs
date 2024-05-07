@@ -178,19 +178,27 @@ namespace TbsFramework.Grid
 
         private void OnCellDehighlighted(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnCellDeselected(sender as Cell);
         }
         private void OnCellHighlighted(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnCellSelected(sender as Cell);
         }
         private void OnCellClicked(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnCellClicked(sender as Cell);
         }
 
         private void OnUnitClicked(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             var unit = sender as Unit;
             Debug.Log($"OnUnitClicked called for unit: {unit?.name ?? "null"}, player number: {unit?.PlayerNumber}");
 
@@ -198,6 +206,8 @@ namespace TbsFramework.Grid
         }
         private void OnUnitHighlighted(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnUnitHighlighted(sender as Unit);
 
             // Invoke the UnitHighlighted event
@@ -206,6 +216,8 @@ namespace TbsFramework.Grid
 
         private void OnUnitDehighlighted(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnUnitDehighlighted(sender as Unit);
 
             // Invoke the UnitDehighlighted event

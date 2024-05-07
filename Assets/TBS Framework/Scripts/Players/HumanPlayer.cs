@@ -23,14 +23,23 @@ namespace TbsFramework.Players
         // EXECUTION FUNCTIONS
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(0.2f);
-            (CurrentUnit.Cell).MarkAsHighlighted();
+            yield return new WaitForSeconds(0.1f);
+
+            if (CurrentUnit != null)
+            {
+                CurrentUnit.Cell.MarkAsHighlighted();
+            }
         }
 
         // METHODS
         public override void Play(CellGrid cellGrid)
         {
             cellGrid.cellGridState = new CellGridStateWaitingForInput(cellGrid);
+        }
+
+        public void SetCurrentUnitIndex(int index)
+        {
+            currentUnitIndex = index;
         }
 
         public void IncrementCurrentUnitIndex()
