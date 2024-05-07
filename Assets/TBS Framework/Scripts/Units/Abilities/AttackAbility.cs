@@ -43,9 +43,15 @@ namespace TbsFramework.Units.Abilities
 
         public void StartBattle(Unit attacker, Unit defender)
         {
-            Debug.Log(attacker.gameObject.name + " VS " + defender.gameObject.name);
-            BattleData.CurrentPlayerFighterID = attacker.UnitID;
-            BattleData.CurrentEnemyFighterID = defender.UnitID;
+            var attackerPlayer = FindObjectsOfType<Player>().FirstOrDefault(player => player.PlayerNumber == attacker.PlayerNumber);
+            var defenderPlayer = FindObjectsOfType<Player>().FirstOrDefault(player => player.PlayerNumber == defender.PlayerNumber);
+
+            Debug.Log(attackerPlayer.name + " is attacking " + defenderPlayer.name);
+
+            BattleData.CurrentPlayerFighterID = attackerPlayer is HumanPlayer ? attacker.UnitID : defender.UnitID;
+            BattleData.CurrentEnemyFighterID = attackerPlayer is AIPlayer ? attacker.UnitID : defender.UnitID;
+
+            BattleData.PlayerIsAttacker = attackerPlayer is HumanPlayer;
 
             BattleData.AddUnitDataToDictionary(attacker);
             BattleData.AddUnitDataToDictionary(defender);

@@ -10,6 +10,7 @@ public static class BattleData
     public static int CurrentPlayerFighterID;
     public static int CurrentEnemyFighterID;
     public static int UsedPlayerUnits = -1;
+    public static bool PlayerIsAttacker = false;
     public static Dictionary<int, UnitData> UnitDataDictionary = new Dictionary<int, UnitData>();
     public static bool? PlayerWon { get; set; }
 

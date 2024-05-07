@@ -93,20 +93,25 @@ public class BattleManager : MonoBehaviour
     
     private IEnumerator BattleSequence()
     {
+        Animator attackerAnimator = BattleData.PlayerIsAttacker ? playerAnimator : enemyAnimator;
+        Animator defenderAnimator = BattleData.PlayerIsAttacker ? enemyAnimator : playerAnimator;
+
         yield return new WaitForSeconds(startBattleDelay);
 
-        playerAnimator.Play("Attack");
+        attackerAnimator.Play("Attack");
 
         yield return new WaitForSeconds(0.1f);
-        yield return new WaitWhile(() => playerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+        yield return new WaitWhile(() => attackerAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
         yield return new WaitForSeconds(defenderDelay);
 
-        if (BattleData.CurrentEnemyFighterData.UnitHealth > 0)
+        int defenderHealth = BattleData.PlayerIsAttacker ? BattleData.CurrentEnemyFighterData.UnitHealth : BattleData.CurrentPlayerFighterData.UnitHealth;
+
+        if (defenderHealth > 0)
         {
-            enemyAnimator.Play("Attack");
+            defenderAnimator.Play("Attack");
 
             yield return new WaitForSeconds(0.1f);
-            yield return new WaitWhile(() => enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
+            yield return new WaitWhile(() => defenderAnimator.GetCurrentAnimatorStateInfo(0).IsName("Attack"));
         }
 
         yield return new WaitForSeconds(endBattleDelay);
