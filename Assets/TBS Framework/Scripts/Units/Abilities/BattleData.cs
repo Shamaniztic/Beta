@@ -9,10 +9,11 @@ public static class BattleData
     // VARIABLES
     public static int CurrentPlayerFighterID;
     public static int CurrentEnemyFighterID;
+    public static int UsedPlayerUnits = -1;
     public static Dictionary<int, UnitData> UnitDataDictionary = new Dictionary<int, UnitData>();
     public static bool? PlayerWon { get; set; }
 
-    public static UnitData CurrentPlayerFighterData => UnitDataDictionary[CurrentPlayerFighterID];
+    public static UnitData CurrentPlayerFighterData => UnitDataDictionary.ContainsKey(CurrentPlayerFighterID) ? UnitDataDictionary[CurrentPlayerFighterID] : null;
     public static UnitData CurrentEnemyFighterData => UnitDataDictionary[CurrentEnemyFighterID];
 
     // METHODS
@@ -29,6 +30,7 @@ public static class BattleData
                                 .WithData(unit.Data)
                                 .WithPosition(unit.transform.position)
                                 .WithCell(unit.Cell.OffsetCoord)
+                                .WithHasDoneTurn(unit.HasDoneTurn)
                                 .Build();
 
             UnitDataDictionary.Add(unit.UnitID, newUnitData);
@@ -38,6 +40,7 @@ public static class BattleData
             UnitDataDictionary[unit.UnitID].SetHitPoints(unit.HitPoints);
             UnitDataDictionary[unit.UnitID].SetPosition(unit.transform.position);
             UnitDataDictionary[unit.UnitID].SetCoords(unit.Cell.OffsetCoord);
+            UnitDataDictionary[unit.UnitID].SetHasDoneTurn(unit.HasDoneTurn);
         }
     }
 
@@ -55,6 +58,7 @@ public static class BattleData
         public Vector3 Position { get; private set; }
         public Vector2 CellOffset { get; private set; }
         public UnitSO Data { get; private set; }
+        public bool HasDoneTurn { get; private set; }
 
         private UnitData() { }
 
@@ -64,19 +68,24 @@ public static class BattleData
             UnitHealth -= amount;
         }
 
-        internal void SetHitPoints(int hitPoints)
+        public void SetHitPoints(int hitPoints)
         {
             UnitHealth = hitPoints;
         }
 
-        internal void SetPosition(Vector3 position)
+        public void SetPosition(Vector3 position)
         {
             Position = position;
         }
 
-        internal void SetCoords(Vector2 offsetCoord)
+        public void SetCoords(Vector2 offsetCoord)
         {
             CellOffset = offsetCoord;
+        }
+
+        public void SetHasDoneTurn(bool hasDoneTurn)
+        {
+            HasDoneTurn = hasDoneTurn;
         }
 
         public class Builder
@@ -90,6 +99,7 @@ public static class BattleData
             Vector3 position;
             Vector2 cellOffset;
             UnitSO data;
+            bool hasDoneTurn;
 
             public Builder(int id)
             {
@@ -144,6 +154,12 @@ public static class BattleData
                 return this;
             }
 
+            public Builder WithHasDoneTurn(bool hasDoneTurn)
+            {
+                this.hasDoneTurn = hasDoneTurn;
+                return this;
+            }
+
             public UnitData Build()
             {
                 UnitData newData = new()
@@ -156,7 +172,8 @@ public static class BattleData
                     UnitDefence = defence,
                     Data = data,
                     Position = position,
-                    CellOffset = cellOffset
+                    CellOffset = cellOffset,
+                    HasDoneTurn = hasDoneTurn
                 };
 
                 return newData;

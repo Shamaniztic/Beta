@@ -20,7 +20,7 @@ public class BattleResultHandler : MonoBehaviour
         Debug.Log("BattleResultHandler.Start: Restoring unit position.");
         RestoreUnitPosition();
         UpdateUnitHealth();
-        FindObjectOfType<HumanPlayer>().SetCurrentUnitIndex(BattleData.CurrentPlayerFighterID);
+        FindObjectOfType<HumanPlayer>().SetUnitsUsedValue(BattleData.UsedPlayerUnits);
 
         if (BattleData.PlayerWon.HasValue)
         {
@@ -44,6 +44,11 @@ public class BattleResultHandler : MonoBehaviour
                 unit.transform.position = BattleData.UnitDataDictionary[unit.UnitID].Position;
                 unit.Cell = FindObjectsOfType<Cell>().FirstOrDefault(cell => cell.OffsetCoord == BattleData.UnitDataDictionary[unit.UnitID].CellOffset);
                 unit.Cell.IsTaken = true;
+                
+                if (BattleData.UnitDataDictionary[unit.UnitID].HasDoneTurn)
+                {
+                    unit.SetTurnDone();
+                }
             }
         }
     }

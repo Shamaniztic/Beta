@@ -52,6 +52,7 @@ namespace TbsFramework.Units.Abilities
                     }
 
                     IsSelected = false;
+                    UnitReference.SetTurnDone();
                 }
             }
             yield return base.Act(cellGrid, isNetworkInvoked);
@@ -95,6 +96,12 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)
         {
+            if (unit.HasDoneTurn)
+            {
+                Debug.Log(unit.UName + " already did his turn");
+                return;
+            }
+
             IsSelected = true;
 
             if (cellGrid.GetCurrentPlayerUnits().Contains(unit))
@@ -142,7 +149,7 @@ namespace TbsFramework.Units.Abilities
                 return;
             }
 
-            if (!IsSelected || !FindObjectOfType<HumanPlayer>().IsCurrentUnit(UnitReference))
+            if (!IsSelected)
             {
                 return;
             }
@@ -164,7 +171,7 @@ namespace TbsFramework.Units.Abilities
                 return;
             }
 
-            if (!IsSelected || !FindObjectOfType<HumanPlayer>().IsCurrentUnit(UnitReference))
+            if (!IsSelected)
             {
                 return;
             }
@@ -184,12 +191,12 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnAbilitySelected(CellGrid cellGrid)
         {
-            if (GetComponent<AttackAbility>().IsSelected)
+            if (UnitReference.HasDoneTurn)
             {
                 return;
             }
 
-            if (cellGrid.CurrentPlayer is HumanPlayer player && !player.IsCurrentUnit(UnitReference))
+            if (GetComponent<AttackAbility>().IsSelected)
             {
                 return;
             }

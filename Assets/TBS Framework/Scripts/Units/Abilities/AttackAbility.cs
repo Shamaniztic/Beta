@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using TbsFramework.Cells;
 using TbsFramework.Grid;
+using TbsFramework.Players;
 using TbsFramework.Tutorial;
 using TbsFramework.Units;
 using UnityEngine;
@@ -80,6 +81,15 @@ namespace TbsFramework.Units.Abilities
 
         public override IEnumerator Act(CellGrid cellGrid, bool isNetworkInvoked = false)
         {
+            if (cellGrid.CurrentPlayer is HumanPlayer human)
+            {
+                BattleData.UsedPlayerUnits = human.UnitsUsedThisTurn;
+            }
+            else
+            {
+                BattleData.UsedPlayerUnits = 0;
+            }
+
             foreach (var unit in FindObjectsOfType<Unit>())
             {
                 unit.Cell = cellGrid.Cells.FirstOrDefault(cell => cell.CurrentUnits.Contains(unit));

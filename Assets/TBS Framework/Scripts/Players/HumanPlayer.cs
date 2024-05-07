@@ -14,22 +14,9 @@ namespace TbsFramework.Players
         // VARIABLES
         [SerializeField] private Unit[] units;
 
-        private int currentUnitIndex = 0;
+        public int UnitsUsedThisTurn { get; private set; } = 0;
 
-        public bool HasUnitsLeftInTurn => currentUnitIndex < units.Length;
-
-        public Unit CurrentUnit => currentUnitIndex >= units.Length ? null : units[currentUnitIndex];
-
-        // EXECUTION FUNCTIONS
-        private IEnumerator Start()
-        {
-            yield return new WaitForSeconds(0.1f);
-
-            if (CurrentUnit != null)
-            {
-                CurrentUnit.Cell.MarkAsHighlighted();
-            }
-        }
+        public bool HasUnitsLeftInTurn => UnitsUsedThisTurn < units.Length;
 
         // METHODS
         public override void Play(CellGrid cellGrid)
@@ -37,24 +24,14 @@ namespace TbsFramework.Players
             cellGrid.cellGridState = new CellGridStateWaitingForInput(cellGrid);
         }
 
-        public void SetCurrentUnitIndex(int index)
+        public void SetUnitsUsedValue(int index)
         {
-            currentUnitIndex = index;
+            UnitsUsedThisTurn = index;
         }
 
         public void IncrementCurrentUnitIndex()
         {
-            currentUnitIndex++;
-
-            if (HasUnitsLeftInTurn)
-            {
-                (CurrentUnit.Cell).MarkAsHighlighted();
-            }
-        }
-
-        public bool IsCurrentUnit(Unit unit)
-        {
-            return unit == CurrentUnit;
+            UnitsUsedThisTurn++;
         }
     }
 }
