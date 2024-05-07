@@ -38,6 +38,9 @@ namespace TbsFramework.Grid.GridStates
             Debug.Log($"CellGridStateAbilitySelected.OnUnitClicked: Clicked on unit {unit.UnitID}");
             base.OnUnitClicked(unit);
 
+            _abilities.ForEach(a => a.OnUnitClicked(unit, _cellGrid));
+            return;
+
             var attackAbility = _unit.GetComponent<AttackAbility>();
             if (attackAbility != null)
             {
@@ -65,7 +68,7 @@ namespace TbsFramework.Grid.GridStates
 
                     // Reset the attack mode flag and exit the state if the attack conditions are not met
                     SetAttackModeActive(false);
-                    _cellGrid.cellGridState = new CellGridStateWaitingForInput(_cellGrid);
+                    //_cellGrid.cellGridState = new CellGridStateWaitingForInput(_cellGrid);
                 }
             }
             else

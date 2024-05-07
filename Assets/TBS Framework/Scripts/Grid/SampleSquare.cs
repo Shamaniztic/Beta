@@ -47,15 +47,8 @@ namespace TbsFramework.Tutorial
         {
             if (currentMarkingPrefab != null)
             {
-                //Debug.Log(currentMarkingPrefab.name);
-                if (currentMarkingPrefab.name == "Attack(Clone)")
-                {
-                    // Debug.Log("Unmarking");
-                }
-
                 Destroy(currentMarkingPrefab);
                 currentMarkingPrefab = null;
-
             }
         }
 
@@ -63,11 +56,6 @@ namespace TbsFramework.Tutorial
         {
             UnMark();
             currentMarkingPrefab = Instantiate(prefab, transform);
-
-            if (prefab.name == "Attack")
-            {
-                // Debug.Log("Show: " + prefab.name);
-            }
         }
     }
 }

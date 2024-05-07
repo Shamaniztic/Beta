@@ -11,6 +11,7 @@ using TbsFramework.Grid;
 using TbsFramework.Players.AI.Actions;
 using TbsFramework.Players.AI.Evaluators;
 using TbsFramework.Units.Abilities;
+using TbsFramework.Players;
 
 namespace TbsFramework.Units
 {
@@ -509,6 +510,11 @@ namespace TbsFramework.Units
 
         public IList<Cell> FindPath(List<Cell> cells, Cell destination)
         {
+            if (cachedPaths == null)
+            {
+                CachePaths(cells);
+            }
+
             if (cachedPaths.TryGetValue(destination, out var path))
             {
                 return path;

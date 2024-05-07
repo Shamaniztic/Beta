@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TbsFramework.Cells;
 using TbsFramework.Units;
@@ -27,10 +28,16 @@ public static class BattleData
                                 .WithDefence(unit.DefenceFactor)
                                 .WithData(unit.Data)
                                 .WithPosition(unit.transform.position)
-                                .WithCell(unit.Cell)
+                                .WithCell(unit.Cell.OffsetCoord)
                                 .Build();
 
             UnitDataDictionary.Add(unit.UnitID, newUnitData);
+        }
+        else
+        {
+            UnitDataDictionary[unit.UnitID].SetHitPoints(unit.HitPoints);
+            UnitDataDictionary[unit.UnitID].SetPosition(unit.transform.position);
+            UnitDataDictionary[unit.UnitID].SetCoords(unit.Cell.OffsetCoord);
         }
     }
 
@@ -46,7 +53,7 @@ public static class BattleData
         public int UnitAttack { get; private set; }
         public int UnitDefence { get; private set; }
         public Vector3 Position { get; private set; }
-        public Cell Cell { get; private set; }
+        public Vector2 CellOffset { get; private set; }
         public UnitSO Data { get; private set; }
 
         private UnitData() { }
@@ -55,6 +62,21 @@ public static class BattleData
         public void LoseHealth(int amount)
         {
             UnitHealth -= amount;
+        }
+
+        internal void SetHitPoints(int hitPoints)
+        {
+            UnitHealth = hitPoints;
+        }
+
+        internal void SetPosition(Vector3 position)
+        {
+            Position = position;
+        }
+
+        internal void SetCoords(Vector2 offsetCoord)
+        {
+            CellOffset = offsetCoord;
         }
 
         public class Builder
@@ -66,7 +88,7 @@ public static class BattleData
             int attack;
             int defence;
             Vector3 position;
-            Cell cell;
+            Vector2 cellOffset;
             UnitSO data;
 
             public Builder(int id)
@@ -116,9 +138,9 @@ public static class BattleData
                 return this;
             }
 
-            public Builder WithCell(Cell cell)
+            public Builder WithCell(Vector2 cellOffset)
             {
-                this.cell = cell; 
+                this.cellOffset = cellOffset; 
                 return this;
             }
 
@@ -134,7 +156,7 @@ public static class BattleData
                     UnitDefence = defence,
                     Data = data,
                     Position = position,
-                    Cell = cell
+                    CellOffset = cellOffset
                 };
 
                 return newData;

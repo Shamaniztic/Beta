@@ -7,6 +7,7 @@ using TbsFramework.Grid.GridStates;
 using TbsFramework.Grid.TurnResolvers;
 using TbsFramework.Grid.UnitGenerators;
 using TbsFramework.Players;
+using TbsFramework.Tutorial;
 using TbsFramework.Units;
 using TbsFramework.Units.Abilities;
 using UnityEngine;
@@ -177,19 +178,27 @@ namespace TbsFramework.Grid
 
         private void OnCellDehighlighted(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnCellDeselected(sender as Cell);
         }
         private void OnCellHighlighted(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnCellSelected(sender as Cell);
         }
         private void OnCellClicked(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnCellClicked(sender as Cell);
         }
 
         private void OnUnitClicked(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             var unit = sender as Unit;
             Debug.Log($"OnUnitClicked called for unit: {unit?.name ?? "null"}, player number: {unit?.PlayerNumber}");
 
@@ -197,6 +206,8 @@ namespace TbsFramework.Grid
         }
         private void OnUnitHighlighted(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnUnitHighlighted(sender as Unit);
 
             // Invoke the UnitHighlighted event
@@ -205,6 +216,8 @@ namespace TbsFramework.Grid
 
         private void OnUnitDehighlighted(object sender, EventArgs e)
         {
+            if (FindObjectOfType<ActionMenu>() != null) return;
+
             cellGridState.OnUnitDehighlighted(sender as Unit);
 
             // Invoke the UnitDehighlighted event
@@ -301,6 +314,26 @@ namespace TbsFramework.Grid
         /// </summary>
         private void EndTurnExecute(bool isNetworkInvoked=false)
         {
+            foreach (var square in FindObjectsOfType<SampleSquare>())
+            {
+                square.UnMark();
+            }
+
+            foreach (var ability in FindObjectsOfType<Ability>())
+            {
+                ability.IsSelected = false;
+            }
+
+            if (CurrentPlayer is HumanPlayer human)
+            {
+                human.IncrementCurrentUnitIndex();
+
+                if (human.HasUnitsLeftInTurn)
+                {
+                    return;
+                }
+            }
+
             cellGridState = new CellGridStateBlockInput(this);
             bool isGameFinished = CheckGameFinished();
             if (isGameFinished)
