@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1078104816513457778}
   - component: {fileID: 2263193966739820425}
   - component: {fileID: 9005409503019961729}
-  - component: {fileID: -7140663586818541916}
   m_Layer: 0
   m_Name: Redline
   m_TagString: Untagged
@@ -168,10 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c371683a573e24dbbe3ef7c7d181c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UName: 
+  actionMenu: {fileID: 0}
   UnitHighlighterAggregator: {fileID: 0}
   Obstructable: 1
+  totalHitPoints: 0
   cell: {fileID: 0}
-  TheName: Redline
+  data: {fileID: 0}
   HitPoints: 3
   AttackRange: 3
   AttackFactor: 3
@@ -192,6 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fa7140db80b3b498d5b8472c717f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSelected: 0
+  combatPreviewUI: {fileID: 0}
 --- !u!114 &9005409503019961729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,15 +208,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b212915272f70f40899729e7af922c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7140663586818541916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154216058175994788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 191c517e72f4f6144b52a5eed6ff2582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  IsSelected: 0

@@ -45838,7 +45838,7 @@ PrefabInstance:
     - target: {fileID: -2845802787710611296, guid: a741aeab228b1914d8ff265b5b0f8558,
         type: 3}
       propertyPath: AttackFactor
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -2845802787710611296, guid: a741aeab228b1914d8ff265b5b0f8558,
         type: 3}
@@ -53043,13 +53043,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4719660479441332739, guid: 0069bf1b2a324ed44ac7ba74074ac5ca,
         type: 3}
+      propertyPath: HitPoints
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719660479441332739, guid: 0069bf1b2a324ed44ac7ba74074ac5ca,
+        type: 3}
       propertyPath: actionMenu
       value: 
       objectReference: {fileID: 4482029788317585435}
     - target: {fileID: 4719660479441332739, guid: 0069bf1b2a324ed44ac7ba74074ac5ca,
         type: 3}
+      propertyPath: AttackFactor
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719660479441332739, guid: 0069bf1b2a324ed44ac7ba74074ac5ca,
+        type: 3}
       propertyPath: totalHitPoints
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5221339510376149542, guid: 0069bf1b2a324ed44ac7ba74074ac5ca,
         type: 3}
