@@ -491,6 +491,11 @@ namespace TbsFramework.Units
             var availableDestinations = new HashSet<Cell>();
             foreach (var cell in cells)
             {
+                if (cell.IsObstructed)
+                {
+                    continue;
+                }
+
                 if(cachedPaths.TryGetValue(cell, out var path))
                 {
                     var pathCost = path.Sum(c => c.MovementCost);

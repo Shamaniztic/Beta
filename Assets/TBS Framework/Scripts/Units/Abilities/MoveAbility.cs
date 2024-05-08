@@ -156,7 +156,7 @@ namespace TbsFramework.Units.Abilities
 
             if (UnitReference.ActionPoints > 0 && availableDestinations.Contains(cell))
             {
-                currentPath = UnitReference.FindPath(cellGrid.Cells, cell);
+                currentPath = UnitReference.FindPath(availableDestinations.ToList(), cell);
                 foreach (var c in currentPath)
                 {
                     c.MarkAsPath();

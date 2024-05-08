@@ -16,6 +16,9 @@ namespace TbsFramework.Cells
     public abstract class Cell : MonoBehaviour, IGraphNode, IEquatable<Cell>
     {
         int hash = -1;
+        [SerializeField] private bool obstructed = false;
+        public bool IsObstructed => obstructed;
+
         [SerializeField]
         private Vector2 _offsetCoord;
         /// <summary>
@@ -50,7 +53,19 @@ namespace TbsFramework.Cells
         /// <summary>
         /// Cost of moving through the cell.
         /// </summary>
-        public float MovementCost = 1;
+        [SerializeField] private float movementCost = 1;
+        public float MovementCost
+        {
+            get
+            {
+                return IsObstructed ? Mathf.Infinity : movementCost;
+            }
+
+            set
+            {
+                movementCost = IsObstructed ? Mathf.Infinity : value;
+            }
+        }
 
         public List<Unit> CurrentUnits { get; private set; } = new List<Unit>();
 
