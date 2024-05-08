@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d823739d298b458eb898870571b91, type: 3}
   m_Name: Brujah
   m_EditorClassIdentifier: 
-  TotalHealth: 3
+  TotalHealth: 16
   AttackPhasePrefab: {fileID: 306939217299237315, guid: 2210f1cbbcab9224da7cf163b912b9ea,
     type: 3}

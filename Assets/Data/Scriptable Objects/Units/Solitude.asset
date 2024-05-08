@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d823739d298b458eb898870571b91, type: 3}
   m_Name: Solitude
   m_EditorClassIdentifier: 
-  TotalHealth: 14
+  TotalHealth: 24
   AttackPhasePrefab: {fileID: 4047407592583004724, guid: 90e48fd6f8921bd4883afab215ab6f7a,
     type: 3}

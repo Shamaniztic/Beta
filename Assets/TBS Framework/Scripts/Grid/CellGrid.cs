@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TbsFramework.Cells;
@@ -22,6 +23,8 @@ namespace TbsFramework.Grid
     {
         public event EventHandler UnitHighlighted;
         public event EventHandler UnitDehighlighted;
+        public GameObject playerTurnObject;
+        public GameObject enemyTurnObject;
 
         /// <summary>
         /// LevelLoading event is invoked before Initialize method is run.
@@ -105,6 +108,17 @@ namespace TbsFramework.Grid
             if (ShouldStartGameImmediately)
             {
                 InitializeAndStart();
+            }
+
+            if (CurrentPlayerNumber == 0)
+            {
+                playerTurnObject.SetActive(true);
+                StartCoroutine(DeactivateAfterDelay(playerTurnObject, 2f)); // Adjust the delay as needed
+            }
+            else if (CurrentPlayerNumber == 1)
+            {
+                enemyTurnObject.SetActive(true);
+                StartCoroutine(DeactivateAfterDelay(enemyTurnObject, 2f)); // Adjust the delay as needed
             }
         }
 
@@ -363,6 +377,17 @@ namespace TbsFramework.Grid
             PlayableUnits = transitionResult.PlayableUnits;
             CurrentPlayerNumber = transitionResult.NextPlayer.PlayerNumber;
 
+            if (CurrentPlayerNumber == 0)
+            {
+                playerTurnObject.SetActive(true);
+                StartCoroutine(DeactivateAfterDelay(playerTurnObject, 2.5f)); // Adjust the delay as needed
+            }
+            else if (CurrentPlayerNumber == 1)
+            {
+                enemyTurnObject.SetActive(true);
+                StartCoroutine(DeactivateAfterDelay(enemyTurnObject, 2.5f)); // Adjust the delay as needed
+            }
+
             if (TurnEnded != null)
                 TurnEnded.Invoke(this, isNetworkInvoked);
 
@@ -396,6 +421,12 @@ namespace TbsFramework.Grid
             {
                 unit.ResetTurn();
             }
+        }
+
+        private IEnumerator DeactivateAfterDelay(GameObject obj, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            obj.SetActive(false);
         }
 
         public List<Unit> GetCurrentPlayerUnits()

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d823739d298b458eb898870571b91, type: 3}
   m_Name: Catalyst
   m_EditorClassIdentifier: 
-  TotalHealth: 3
+  TotalHealth: 19
   AttackPhasePrefab: {fileID: 2613630451763930170, guid: df312911c87223247937313ba4993255,
     type: 3}

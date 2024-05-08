@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225d823739d298b458eb898870571b91, type: 3}
   m_Name: Z3N
   m_EditorClassIdentifier: 
-  TotalHealth: 3
+  TotalHealth: 12
   AttackPhasePrefab: {fileID: 5133981627944334456, guid: c7705c66c96988347b3f2e1483ef41e2,
     type: 3}
