@@ -99,6 +99,10 @@ namespace TbsFramework.Players.AI.Actions
 
             unit.GetComponent<AttackAbility>().UnitToAttack = Target;
             unit.GetComponent<AttackAbility>().UnitToAttackID = Target.UnitID;
+
+            unit.SetTurnDone();
+            BattleData.AddUnitDataToDictionary(unit);
+
             yield return StartCoroutine(unit.GetComponent<AttackAbility>().AIExecute(cellGrid));
         }
         public override void CleanUp(Player player, Unit unit, CellGrid cellGrid)

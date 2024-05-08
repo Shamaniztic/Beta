@@ -17,6 +17,7 @@ public class BattleResultHandler : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
+        FindObjectOfType<CellGrid>().SetCurrentPlayerNumber(BattleData.CurrentPlayerNumber);
         Debug.Log("BattleResultHandler.Start: Restoring unit position.");
         RestoreUnitPosition();
         UpdateUnitHealth();
@@ -44,6 +45,8 @@ public class BattleResultHandler : MonoBehaviour
                 unit.transform.position = BattleData.UnitDataDictionary[unit.UnitID].Position;
                 unit.Cell = FindObjectsOfType<Cell>().FirstOrDefault(cell => cell.OffsetCoord == BattleData.UnitDataDictionary[unit.UnitID].CellOffset);
                 unit.Cell.IsTaken = true;
+
+                Debug.LogError(unit.UName + " has done turn: " + BattleData.UnitDataDictionary[unit.UnitID].HasDoneTurn);
                 
                 if (BattleData.UnitDataDictionary[unit.UnitID].HasDoneTurn)
                 {

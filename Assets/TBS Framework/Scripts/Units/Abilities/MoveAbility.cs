@@ -191,11 +191,6 @@ namespace TbsFramework.Units.Abilities
 
         public override void OnAbilitySelected(CellGrid cellGrid)
         {
-            if (UnitReference.HasDoneTurn)
-            {
-                return;
-            }
-
             if (GetComponent<AttackAbility>().IsSelected)
             {
                 return;

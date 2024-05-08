@@ -57,6 +57,7 @@ namespace TbsFramework.Units.Abilities
             BattleData.AddUnitDataToDictionary(attacker);
             BattleData.AddUnitDataToDictionary(defender);
 
+            BattleData.CurrentPlayerNumber = FindObjectOfType<CellGrid>().CurrentPlayerNumber;
             SceneManager.LoadScene("BattleScene");
         }
 

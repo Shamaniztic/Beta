@@ -81,6 +81,7 @@ namespace TbsFramework.Grid
             get { return Players.Find(p => p.PlayerNumber.Equals(CurrentPlayerNumber)); }
         }
         public int CurrentPlayerNumber { get; private set; }
+        public void SetCurrentPlayerNumber(int playerNumber) => CurrentPlayerNumber = playerNumber;
 
         [HideInInspector]
         public bool Is2D;
@@ -324,11 +325,9 @@ namespace TbsFramework.Grid
                 ability.IsSelected = false;
             }
 
-            if (CurrentPlayer is HumanPlayer human)
+            foreach (var unit in PlayableUnits())
             {
-                human.IncrementCurrentUnitIndex();
-
-                if (human.HasUnitsLeftInTurn)
+                if (!unit.HasDoneTurn)
                 {
                     return;
                 }
@@ -391,6 +390,11 @@ namespace TbsFramework.Grid
             if (CurrentPlayer is HumanPlayer player)
             {
                 player.SetUnitsUsedValue(0);
+            }
+
+            foreach (var unit in PlayableUnits())
+            {
+                unit.ResetTurn();
             }
         }
 

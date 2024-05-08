@@ -119,6 +119,7 @@ namespace TbsFramework.Units
         public float TotalActionPoints { get; private set; }
         public bool HasDoneTurn { get; private set; }
         public void SetTurnDone() => HasDoneTurn = true;
+        public void ResetTurn() => HasDoneTurn = false;
  
         /// <summary>
         /// Cell that the unit is currently occupying.
