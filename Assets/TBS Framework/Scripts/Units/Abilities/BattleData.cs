@@ -11,6 +11,7 @@ public static class BattleData
     public static int CurrentEnemyFighterID;
     public static int UsedPlayerUnits = -1;
     public static bool PlayerIsAttacker = false;
+    public static int CurrentPlayerNumber = 0;
     public static Dictionary<int, UnitData> UnitDataDictionary = new Dictionary<int, UnitData>();
     public static bool? PlayerWon { get; set; }
 
@@ -43,6 +44,11 @@ public static class BattleData
             UnitDataDictionary[unit.UnitID].SetCoords(unit.Cell.OffsetCoord);
             UnitDataDictionary[unit.UnitID].SetHasDoneTurn(unit.HasDoneTurn);
         }
+    }
+
+    public static void SetTurnDoneToUnit(Unit unit)
+    {
+        UnitDataDictionary[unit.UnitID].SetHasDoneTurn(true);
     }
 
 

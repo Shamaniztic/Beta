@@ -1,9 +1,11 @@
 ﻿using System.Collections;
+using System.Linq;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
 using TbsFramework.Players.AI;
 using TbsFramework.Players.AI.Actions;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace TbsFramework.Players
 {
@@ -30,6 +32,13 @@ namespace TbsFramework.Players
 
             foreach (var unit in UnitsOrdered)
             {
+                BattleData.AddUnitDataToDictionary(unit);
+            }
+
+            foreach (var unit in UnitsOrdered)
+            {
+                yield return new WaitForSeconds(1f);
+
                 if (DebugMode)
                 {
                     unit.MarkAsSelected();
@@ -39,6 +48,13 @@ namespace TbsFramework.Players
                         yield return null;
                     }
                 }
+
+                if (unit.HasDoneTurn)
+                {
+                    continue;
+                }
+
+                BattleData.SetTurnDoneToUnit(unit);
 
                 var AIActions = unit.GetComponentsInChildren<AIAction>();
                 foreach (var aiAction in AIActions)
