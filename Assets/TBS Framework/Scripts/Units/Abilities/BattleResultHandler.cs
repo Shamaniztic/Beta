@@ -143,6 +143,7 @@ public class BattleResultHandler : MonoBehaviour
             {
                 if (BattleData.UnitDataDictionary[unit.UnitID].UnitHealth <= 0)
                 {
+                    unitSprites.Remove(unit.GetComponent<SpriteRenderer>());
                     unit.DefendHandler(unit, 1000);
                     continue;
                 }
