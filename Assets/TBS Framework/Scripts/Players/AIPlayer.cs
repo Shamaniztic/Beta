@@ -6,6 +6,7 @@ using TbsFramework.Players.AI;
 using TbsFramework.Players.AI.Actions;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 namespace TbsFramework.Players
 {
@@ -54,6 +55,11 @@ namespace TbsFramework.Players
                     continue;
                 }
 
+                if (SceneManager.loadedSceneCount > 1)
+                {
+                    yield return new WaitUntil(() => SceneManager.loadedSceneCount == 1);
+                }
+
                 BattleData.SetTurnDoneToUnit(unit);
 
                 var AIActions = unit.GetComponentsInChildren<AIAction>();
@@ -88,6 +94,7 @@ namespace TbsFramework.Players
                     aiAction.CleanUp(this, unit, cellGrid);
                 }
                 unit.MarkAsFriendly();
+                unit.SetTurnDone();
             }
 
             cellGrid.EndTurn();

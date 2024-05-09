@@ -58,7 +58,9 @@ namespace TbsFramework.Units.Abilities
             BattleData.AddUnitDataToDictionary(defender);
 
             BattleData.CurrentPlayerNumber = FindObjectOfType<CellGrid>().CurrentPlayerNumber;
-            SceneManager.LoadScene("BattleScene");
+
+            FindObjectOfType<BattleResultHandler>().DeactivateObjects();
+            SceneManager.LoadScene("BattleScene", LoadSceneMode.Additive);
         }
 
         public override void OnUnitClicked(Unit unit, CellGrid cellGrid)

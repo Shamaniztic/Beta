@@ -147,6 +147,7 @@ public class BattleManager : MonoBehaviour
     private void TransitionToMainScene()
     {
         // Load the main scene
-        SceneManager.LoadScene("MainScene");
+        var op = SceneManager.UnloadSceneAsync("BattleScene");
+        FindObjectOfType<BattleResultHandler>().ExecuteBattleResults(op);
     }
 }
