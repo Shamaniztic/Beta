@@ -12,6 +12,7 @@ using TbsFramework.Players.AI.Actions;
 using TbsFramework.Players.AI.Evaluators;
 using TbsFramework.Units.Abilities;
 using TbsFramework.Players;
+using TbsFramework.Gui;
 
 namespace TbsFramework.Units
 {
@@ -24,6 +25,8 @@ namespace TbsFramework.Units
         public string UName; // Variable to store the unit's name
 
         public ActionMenu actionMenu;
+
+        private CameraController cameraController;
 
         Dictionary<Cell, IList<Cell>> cachedPaths = null;
         /// <summary>
@@ -197,6 +200,8 @@ namespace TbsFramework.Units
         {
             Buffs = new List<(Buff, int)>();
 
+            cameraController = FindObjectOfType<CameraController>();
+
             UnitState = new UnitStateNormal(this);
 
             TotalMovementPoints = MovementPoints;
@@ -211,6 +216,12 @@ namespace TbsFramework.Units
 
         public virtual void OnMouseDown()
         {
+
+            if (cameraController != null)
+            {
+                cameraController.SnapToPosition(transform.position);
+            }
+
             Debug.Log($"Unit.OnMouseDown: unit={name}, PlayerNumber={PlayerNumber}");
             if (UnitClicked != null)
             {

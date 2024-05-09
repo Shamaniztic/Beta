@@ -2,6 +2,7 @@
 using System.Linq;
 using TbsFramework.Grid;
 using TbsFramework.Grid.GridStates;
+using TbsFramework.Gui;
 using TbsFramework.Players.AI;
 using TbsFramework.Players.AI.Actions;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace TbsFramework.Players
     public class AIPlayer : Player
     {
         public bool DebugMode;
+
+        public CameraController cameraController;
 
         public override void Initialize(CellGrid cellGrid)
         {
@@ -53,6 +56,13 @@ namespace TbsFramework.Players
                 if (unit.HasDoneTurn)
                 {
                     continue;
+                }
+
+                // Move the camera snapping code inside the foreach loop
+                if (cameraController != null)
+                {
+                    cameraController.SnapToPosition(unit.transform.position);
+                    yield return new WaitForSeconds(1f); // Optional delay to show the unit before executing actions
                 }
 
                 if (SceneManager.loadedSceneCount > 1)
