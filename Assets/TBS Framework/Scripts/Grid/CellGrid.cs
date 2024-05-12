@@ -12,6 +12,8 @@ using TbsFramework.Tutorial;
 using TbsFramework.Units;
 using TbsFramework.Units.Abilities;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 namespace TbsFramework.Grid
 {
@@ -25,6 +27,11 @@ namespace TbsFramework.Grid
         public event EventHandler UnitDehighlighted;
         public GameObject playerTurnObject;
         public GameObject enemyTurnObject;
+        public DialogueManager DialogueManager;
+        public GameObject battleStartObject; // Add this at the class level where other GameObjects are defined
+        public GameObject victoryObject; // This will display the victory message.
+
+
 
         /// <summary>
         /// LevelLoading event is invoked before Initialize method is run.
@@ -51,6 +58,8 @@ namespace TbsFramework.Grid
         /// UnitAdded event is invoked each time AddUnit method is called.
         /// </summary>
         public event EventHandler<UnitCreatedEventArgs> UnitAdded;
+
+        private bool _dialogueEnded = false;
 
         private CellGridState _cellGridState;
         public CellGridState cellGridState
@@ -105,27 +114,71 @@ namespace TbsFramework.Grid
 
         private void Start()
         {
-            if (ShouldStartGameImmediately)
+            if (DialogueManager != null)
             {
-                InitializeAndStart();
+                DialogueManager.DialogueEnded += OnDialogueEnded;
             }
 
+            // Make sure all objects are not visible initially
+            playerTurnObject.SetActive(false);
+            enemyTurnObject.SetActive(false);
+            battleStartObject.SetActive(false);
+            victoryObject.SetActive(false); // Ensure the victory object is also hidden initially
+        }
+
+
+        void Update()
+        {
+            // Check if the 'H' key is pressed
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                ResetScene();
+            }
+        }
+
+        void ResetScene()
+        {
+            // Reload the current scene
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name);
+        }
+
+
+        public void InitializeAndStart()
+        {
+            if (_dialogueEnded)
+            {
+                Initialize();
+                StartGame();
+            }
+        }
+
+        private void OnDialogueEnded(object sender, EventArgs e)
+        {
+            _dialogueEnded = true;
+            InitializeAndStart();
+
+            // Show the battle start object and trigger its animation
+            battleStartObject.SetActive(true);
+            StartCoroutine(PerformBattleStartAnimation());
+        }
+
+        private IEnumerator PerformBattleStartAnimation()
+        {
+            // Assume animation takes 3 seconds, adjust time as needed
+            yield return new WaitForSeconds(3); // Wait for the animation to complete
+
+            // After the battle start animation, continue to player/enemy turn
             if (CurrentPlayerNumber == 0)
             {
                 playerTurnObject.SetActive(true);
-                StartCoroutine(DeactivateAfterDelay(playerTurnObject, 2f)); // Adjust the delay as needed
+                StartCoroutine(DeactivateAfterDelay(playerTurnObject, 2f)); // Deactivates player turn object after 2 seconds
             }
             else if (CurrentPlayerNumber == 1)
             {
                 enemyTurnObject.SetActive(true);
-                StartCoroutine(DeactivateAfterDelay(enemyTurnObject, 2f)); // Adjust the delay as needed
+                StartCoroutine(DeactivateAfterDelay(enemyTurnObject, 2f)); // Deactivates enemy turn object after 2 seconds
             }
-        }
-
-        public void InitializeAndStart()
-        {
-            Initialize();
-            StartGame();
         }
 
 
@@ -463,11 +516,13 @@ namespace TbsFramework.Grid
                         GameEnded.Invoke(this, new GameEndedArgs(gameResult));
                     }
 
+                    victoryObject.SetActive(true); // Activate the victory message immediately.
                     break;
                 }
             }
             return GameFinished;
         }
+
     }
 }
 

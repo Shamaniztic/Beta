@@ -1,33 +1,50 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
 using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Image speakerImage1;
-    public Image speakerImage2;
-    public Text speakerNameText1;
-    public Text speakerNameText2;
-    public Text dialogueText;
+    [System.Serializable]
+    public class Speaker
+    {
+        public GameObject bust;
+        public string name;
+    }
+
+    public Speaker speaker1;
+    public Speaker speaker2;
+
+    public TextMeshProUGUI speakerNameText;
+    public TextMeshProUGUI dialogueText;
+    public GameObject dialogueBox;
 
     public float typeWriteSpeed = 0.05f;
+    public float fadeDuration = 0.5f;
 
-    private string[] dialogueLines;
+    [System.Serializable]
+    public class DialogueLine
+    {
+        public int speakerIndex;
+        [TextArea(3, 10)]
+        public string dialogue;
+    }
+
+    public DialogueLine[] dialogueLines;
+
     private int currentLineIndex;
+    private Speaker currentSpeaker;
+    private Speaker nextSpeaker;
+
+    public event EventHandler DialogueEnded;
 
     private void Start()
     {
-        // Initialize the dialogue lines (you can replace this with your own dialogue system)
-        dialogueLines = new string[]
-        {
-            "Speaker1:Hello! How are you doing today?",
-            "Speaker2:I'm doing great, thanks for asking!",
-            "Speaker1:That's wonderful to hear.",
-            "Speaker2:So, what brings you here?",
-            // Add more dialogue lines as needed
-        };
-
         currentLineIndex = 0;
+        SetDialogueBoxAlpha(0f);
+        SetBustAlpha(speaker1.bust, 0f);
+        SetBustAlpha(speaker2.bust, 0f);
         StartDialogue();
     }
 
@@ -35,14 +52,14 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (dialogueText.text == dialogueLines[currentLineIndex])
+            if (dialogueText.text == dialogueLines[currentLineIndex].dialogue)
             {
                 NextLine();
             }
             else
             {
                 StopAllCoroutines();
-                dialogueText.text = dialogueLines[currentLineIndex];
+                dialogueText.text = dialogueLines[currentLineIndex].dialogue;
             }
         }
     }
@@ -50,35 +67,42 @@ public class DialogueManager : MonoBehaviour
     private void StartDialogue()
     {
         currentLineIndex = 0;
+        StartCoroutine(FadeDialogueBox(1f));
         DisplayLine();
     }
 
     private void DisplayLine()
     {
-        string line = dialogueLines[currentLineIndex];
-        string[] parts = line.Split(':');
+        DialogueLine line = dialogueLines[currentLineIndex];
 
-        if (parts.Length == 2)
+        // Determine the current and next speakers based on the speakerIndex
+        if (line.speakerIndex == 1)
         {
-            string speakerName = parts[0];
-            string dialogue = parts[1];
-
-            // Set the speaker's image and name based on the speaker's name
-            if (speakerName == "Speaker1")
-            {
-                speakerImage1.gameObject.SetActive(true);
-                speakerImage2.gameObject.SetActive(false);
-                speakerNameText1.text = speakerName;
-            }
-            else if (speakerName == "Speaker2")
-            {
-                speakerImage1.gameObject.SetActive(false);
-                speakerImage2.gameObject.SetActive(true);
-                speakerNameText2.text = speakerName;
-            }
-
-            StartCoroutine(TypewriteText(dialogue));
+            currentSpeaker = speaker1;
+            nextSpeaker = speaker2;
         }
+        else if (line.speakerIndex == 2)
+        {
+            currentSpeaker = speaker2;
+            nextSpeaker = speaker1;
+        }
+
+        // Set the speaker's name
+        speakerNameText.text = currentSpeaker.name;
+
+        // Fade in the current speaker's bust
+        StartCoroutine(FadeBust(currentSpeaker.bust, 1f));
+
+        // Fade out the next speaker's bust if it was previously visible
+        if (GetBustAlpha(nextSpeaker.bust) > 0f)
+        {
+            StartCoroutine(FadeBust(nextSpeaker.bust, 0f));
+        }
+
+        // Fade in the dialogue box
+        StartCoroutine(FadeDialogueBox(1f));
+
+        StartCoroutine(TypewriteText(line.dialogue));
     }
 
     private void NextLine()
@@ -92,7 +116,11 @@ public class DialogueManager : MonoBehaviour
         else
         {
             // End of dialogue
-            // Add any desired behavior or cleanup here
+            StartCoroutine(FadeBust(currentSpeaker.bust, 0f));
+            StartCoroutine(FadeDialogueBox(0f));
+
+            // Invoke the DialogueEnded event
+            DialogueEnded?.Invoke(this, EventArgs.Empty);
         }
     }
 
@@ -103,6 +131,85 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(typeWriteSpeed);
+        }
+    }
+
+    private IEnumerator FadeBust(GameObject bust, float targetAlpha)
+    {
+        float startAlpha = GetBustAlpha(bust);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            float t = elapsedTime / fadeDuration;
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+            SetBustAlpha(bust, alpha);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        SetBustAlpha(bust, targetAlpha);
+    }
+
+    private float GetBustAlpha(GameObject bust)
+    {
+        CanvasGroup canvasGroup = bust.GetComponent<CanvasGroup>();
+        if (canvasGroup != null)
+        {
+            return canvasGroup.alpha;
+        }
+        return 1f;
+    }
+
+    private void SetBustAlpha(GameObject bust, float alpha)
+    {
+        CanvasGroup canvasGroup = bust.GetComponent<CanvasGroup>();
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = alpha;
+        }
+    }
+
+    private IEnumerator FadeDialogueBox(float targetAlpha)
+    {
+        CanvasGroup canvasGroup = dialogueBox.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = dialogueBox.AddComponent<CanvasGroup>();
+        }
+
+        float startAlpha = canvasGroup.alpha;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            float t = elapsedTime / fadeDuration;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        canvasGroup.alpha = targetAlpha;
+    }
+
+    private float GetDialogueBoxAlpha()
+    {
+        CanvasGroup canvasGroup = dialogueBox.GetComponent<CanvasGroup>();
+        if (canvasGroup != null)
+        {
+            return canvasGroup.alpha;
+        }
+        return 1f;
+    }
+
+    private void SetDialogueBoxAlpha(float alpha)
+    {
+        CanvasGroup canvasGroup = dialogueBox.GetComponent<CanvasGroup>();
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = alpha;
         }
     }
 }
